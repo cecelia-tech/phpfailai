@@ -197,18 +197,49 @@ echo "<br>";
 $skaicius1 = rand(0, 100);
 $skaicius2 = rand(0, 100);
 $skaicius3 = rand(0, 100);
+$average = 0;
 
-echo $skaicius1 . "<br>";
-echo $skaicius2 . "<br>";
-echo $skaicius3 . "<br>";
+echo "Skaicius1: $skaicius1" . "<br>";
+echo "Skaicius2: $skaicius2" . "<br>";
+echo "Skaicius3: $skaicius3" . "<br>";
 //3 yra skaiciu kiekis
 echo round(($skaicius1 + $skaicius2 + $skaicius3) / 3, 0);
+echo "<br>";
 
-$count = 0;
+//$count = 0;
 
-if ($skaicius1 < 10) {
-    # code...
-}
+if ($skaicius1 < 10 || $skaicius1 > 90) {
+    if ($skaicius2 < 10 || $skaicius2 > 90) {
+        if ($skaicius3 < 10 || $skaicius3 > 90) {
+            echo 'Visi skaiciai atkrito';
+        } else {
+            $average = $skaicius3 / 1;
+            echo round($average, 0);
+        }
+    }elseif ($skaicius3 < 10 || $skaicius3 > 90) {
+        $average = $skaicius2 / 1;
+        echo round($average, 0);
+    }else {
+        $average = ($skaicius2 + $skaicius3) / 2;
+        echo round($average, 0);
+    }
+} elseif ($skaicius2 < 10 || $skaicius2 > 90) {
+    if ($skaicius3 < 10 || $skaicius3 > 90) {
+        $average = $skaicius1 / 1;
+        echo round($average, 0);
+    } else {
+        $average = ($skaicius1 + $skaicius3) / 2;
+        echo round($average, 0);
+    }
+} elseif ($skaicius3 < 10 || $skaicius3 > 90) {
+    $average = ($skaicius1 + $skaicius2) / 2;
+    echo round($average, 0);
+} 
+
+// else {
+//     $average = ($skaicius1 + $skaicius2 + $skaicius3) / 3;
+//     echo $average;
+// }
 
 echo "<br>";
 echo 'Desimta uzduotis'. "<br>";
