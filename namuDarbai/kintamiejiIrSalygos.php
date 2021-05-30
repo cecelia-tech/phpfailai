@@ -56,6 +56,7 @@ echo $sk2;
 echo "<br>";
 echo $sk3;
 echo "<br>";
+echo "<br>";
 
 if (($sk2 > $sk1 && $sk2 < $sk3) || ($sk2 < $sk1 && $sk2 > $sk3)) {
     echo "Vidurinis skaicius yra $sk2" . "<br>";
@@ -64,6 +65,7 @@ if (($sk2 > $sk1 && $sk2 < $sk3) || ($sk2 < $sk1 && $sk2 > $sk3)) {
 } else {
     echo "Vidurinis skaicius yra $sk3" . "<br>";
 }
+echo "<br>";
 echo 'Ketvirta uzduotis'. "<br>";
 echo "<br>";
 
@@ -79,6 +81,7 @@ if (($krastine1 + $krastine2 > $krastine3)
 } else {
     echo 'Trikampis nesusidaro';
 }
+echo "<br>";
 echo "<br>";
 echo 'Penkta uzduotis'. "<br>";
 echo "<br>";
@@ -129,9 +132,9 @@ if ($kintamasis4 === 2) {
     $duCount++;
 }
 
-echo $nulisCount . "<br>";
-echo $vienasCount. "<br>";
-echo $duCount. "<br>";
+echo "Nulis pasikartojo $nulisCount kartus/a" . "<br>";
+echo "Vienas pasikartojo $vienasCount kartus/a" . "<br>";
+echo "Du pasikartojo $duCount kartus/a" . "<br>";
 
 echo "<br>";
 echo 'Sesta uzduotis'. "<br>";
