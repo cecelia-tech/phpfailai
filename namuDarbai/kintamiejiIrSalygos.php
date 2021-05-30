@@ -13,36 +13,30 @@ echo "As esu $name $surname. Man yra $age metai." . "<br>";
 echo "<br>";
 
 echo 'Antra uzduotis'. "<br>";
+
+$skaicius1 = rand(0, 4);
+$skaicius2 = rand(0, 4);
 echo "<br>";
+echo $skaicius1 . "<br>";
+echo $skaicius2 . "<br>";
+$dalmuo = 0;
+if ($skaicius1 !== 0 && $skaicius2 !== 0) {
+    if ($skaicius1 > $skaicius2) {
+    $dalmuo = $skaicius1 / $skaicius2;
+} elseif ($skaicius2 > $skaicius1) {
+    $dalmuo = $skaicius2 / $skaicius1;
+} elseif ($skaicius1 = $skaicius2) {
+    echo 'Skaiciai yra lygus'. "<br>";
+    $dalmuo = $skaicius1 / $skaicius2;
+}
+} else {
+    echo 'Dalyba is 0 negalima';
+}
+echo "<br>";
+echo (round($dalmuo, 2));
 
-// $skaicius1 = rand(0, 4);
-// $skaicius2 = rand(0, 4);
-// echo "<br>";
-// echo $skaicius1 . "<br>";
-// echo $skaicius2 . "<br>";
-// $dalmuo = 0;
-// if ($skaicius1 > $skaicius2) {
-//     $dalmuo = $skaicius1 / $skaicius2;
-// } elseif ($skaicius2 > $skaicius1) {
-//     $dalmuo = $skaicius2 / $skaicius1;
-// } elseif ($skaicius1 = $skaicius2) {
-//     echo 'Skaiciai yra lygus'. "<br>";
-//     $dalmuo = $skaicius1 / $skaicius2;
-// } elseif ($skaicius1 == 0 or $skaicius2 == 0 ) {
-//     echo 'Dalyba is 0 negalima';
-// }else {
-//     echo 'Vienas arba abu skaiciai yra 0';
-// }
-
-
-
-// echo "<br>";
-// echo $skaicius1 . "<br>";
-// echo $skaicius2 . "<br>";
-// echo 'Atsakymas' . "<br>";
-// echo (round($dalmuo, 2));
-// echo "<br>";
-
+echo "<br>";
+echo "<br>";
 echo 'Trecia uzduotis'. "<br>";
 echo "<br>";
 
@@ -149,31 +143,31 @@ $skaicius2 = rand(-10, 10);
 $skaicius3 = rand(-10, 10);
 
 if ($skaicius1 < 0) {
-    echo "<div style='color: green;'>$skaicius1</div> ";
+    echo "<p style='color: green;'>$skaicius1</p> ";
 }
 if ($skaicius1 === 0) {
-    echo "<div style ='color: red;'>$skaicius1</div> ";
+    echo "<p style ='color: red;'>$skaicius1</p> ";
 }
 if ($skaicius1 > 0) {
-    echo "<div style ='color: blue;'>$skaicius1</div> ";
+    echo "<p style ='color: blue;'>$skaicius1</p> ";
 }
 if ($skaicius2 < 0) {
-    echo "<div style='color: green;'>$skaicius2</div> ";
+    echo "<p style='color: green;'>$skaicius2</p> ";
 }
 if ($skaicius2 === 0) {
-    echo "<div style ='color: red;'>$skaicius2</div> ";
+    echo "<p style ='color: red;'>$skaicius2</p> ";
 }
 if ($skaicius2 > 0) {
-    echo "<div style ='color: blue;'>$skaicius2</div> ";
+    echo "<p style ='color: blue;'>$skaicius2</p> ";
 }
 if ($skaicius3 < 0) {
-    echo "<div style='color: green;'>$skaicius3</div> ";
+    echo "<p style='color: green;'>$skaicius3</p> ";
 }
 if ($skaicius3 === 0) {
-    echo "<div style ='color: red;'>$skaicius3</div> ";
+    echo "<p style ='color: red;'>$skaicius3</p> ";
 }
 if ($skaicius3 > 0) {
-    echo "<div style ='color: blue;'>$skaicius3</div> ";
+    echo "<p style ='color: blue;'>$skaicius3</p> ";
 }
 
 echo 'Astunta uzduotis'. "<br>";
