@@ -3,10 +3,12 @@
 echo '1-mas uzdavinys' . "<br>";
 echo "<br>";
 
-$aktorius1 = 'Park Bo-young';
-$aktorius2 = 'Kang Tae-oh';
+$vardas = 'Tae-oh';
+$pavarde = 'Kang';
 
-echo strlen($aktorius1) > strlen($aktorius2)? $aktorius2:$aktorius1;
+echo strlen($vardas) > strlen($pavarde)? $pavarde:$vardas;
+
+
 echo "<br>";
 echo "<br>";
 echo '2-as uzdavinys' . "<br>";
@@ -49,7 +51,7 @@ echo "<br>";
 
 $movieTitle = 'An American in Paris';
 
-$movieTitle = str_ireplace("a", "*", "An American in Paris");
+$movieTitle = str_ireplace("a", "*", $movieTitle);
 
 echo $movieTitle;
 
@@ -66,5 +68,68 @@ echo  substr_count(strtolower($movieTitle), 'a');
 echo "<br>";
 echo "<br>";
 echo '7-tas uzdavinys' . "<br>";
+echo "<br>";
+// 7. Sukurti kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą atspausdinti. Kodą pakartoti su stringais: “Breakfast at Tiffany's”, “2001: A Space Odyssey” ir “It's a Wonderful Life”.
+
+$movieTitle2 = 'An American in Paris';
+$movieTitle3 = 'Breakfast at Tiffany\'s';
+$movieTitle4 = '2001: A Space Odyssey';
+$movieTitle5 = 'It\'s a Wonderful Life';
+
+$vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+$vowels2 = "/[aeiou]/i"; 
+
+echo str_replace($vowels, "", $movieTitle2) . "<br>";
+echo str_replace($vowels, "", $movieTitle3) . "<br>";
+echo preg_replace($vowels2, "", $movieTitle4) . "<br>";
+echo preg_replace($vowels2, "", $movieTitle5) . "<br>";
+
+
+echo "<br>";
+echo "<br>";
+echo '8-tas uzdavinys' . "<br>";
+echo "<br>";
+
+$episode = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
+//$patern = "/ [0-9] /mgi";
+echo $episode . "<br>";
+
+echo preg_replace("/[^0-9]/",'', $episode) . "<br>";
+
+
+echo "<br>";
+echo "<br>";
+echo '9-tas uzdavinys' . "<br>";
+echo "<br>";
+
+
+//Suskaičiuoti kiek stringe “Don't Be a Menace to South Central While Drinking Your Juice in the Hood” yra žodžių trumpesnių arba lygių nei 5 raidės. Pakartokite kodą su stringu “Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale”.
+
+$string1 = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
+$string2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+
+$string1Splitted = explode(" ",$string1 );
+$string2Splitted = explode(" ",$string2 );
+$ilgis = 0;
+
+echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($string1Splitted, $ilgis) . "<br>";
+echo "<br>";
+echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($string2Splitted, $ilgis) . "<br>";
+
+function zodziuSkaiciavimas ($string, $ilgis){
+    $zodziai = 0;
+    if (count($string) == $ilgis) {
+    return;
+}
+if (mb_strlen($string[$ilgis]) <=5) {
+    $zodziai++;
+}
+return $zodziai + zodziuSkaiciavimas($string, $ilgis+1);
+}
+
+
+echo "<br>";
+echo "<br>";
+echo '10-tas uzdavinys' . "<br>";
 echo "<br>";
 
