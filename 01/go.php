@@ -15,5 +15,4 @@ echo "I am $name $surname. I'm $age years old.";
 
 echo 'Antra uzduotis'. "<br>";
 
-
 ?>

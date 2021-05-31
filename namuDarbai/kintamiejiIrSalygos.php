@@ -2,8 +2,8 @@
 
 echo 'Pirma uzduotis' . "<br>";
 echo "<br>";
-$name = 'Sara';
-$surname = 'Smith';
+$name = 'Vita';
+$surname = 'Griciute';
 $dateOfBirth = 1976;
 $currentYear = 2021;
 
@@ -25,7 +25,7 @@ if ($skaicius1 !== 0 && $skaicius2 !== 0) {
     $dalmuo = $skaicius1 / $skaicius2;
 } elseif ($skaicius2 > $skaicius1) {
     $dalmuo = $skaicius2 / $skaicius1;
-} elseif ($skaicius1 = $skaicius2) {
+} elseif ($skaicius1 === $skaicius2) {
     echo 'Skaiciai yra lygus'. "<br>";
     $dalmuo = $skaicius1 / $skaicius2;
 }
@@ -84,6 +84,9 @@ $kintamasis1 = rand(0, 2);
 $kintamasis2 = rand(0, 2);
 $kintamasis3 = rand(0, 2);
 $kintamasis4 = rand(0, 2);
+
+echo $kintamasis1 . $kintamasis2 . $kintamasis3 . $kintamasis4;
+echo "<br>";
 
 $nulisCount = 0;
 $vienasCount = 0;
@@ -203,7 +206,6 @@ echo "Skaicius3: $skaicius3" . "<br>";
 echo round(($skaicius1 + $skaicius2 + $skaicius3) / 3, 0);
 echo "<br>";
 
-//$count = 0;
 
 if ($skaicius1 < 10 || $skaicius1 > 90) {
     if ($skaicius2 < 10 || $skaicius2 > 90) {
