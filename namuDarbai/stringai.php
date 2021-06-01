@@ -133,3 +133,20 @@ echo "<br>";
 echo '10-tas uzdavinys' . "<br>";
 echo "<br>";
 
+//Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
+
+$characters = 'abcdefghijklmnopqrstuvwxyz';
+$length = 4;
+
+echo stringGenerator($characters, $length);
+
+function stringGenerator($string1, $length){
+    
+    if ($length == 0) {
+        return '';
+    }
+    $generatedString = $string1[rand(0, strlen($string1)-1)];
+
+    return $generatedString .= stringGenerator($string1, $length - 1);
+}
+
