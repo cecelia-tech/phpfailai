@@ -26,10 +26,20 @@ echo '3-ias uzdavinys' . "<br>";
 echo "<br>";
 $aktoriausVardas = 'In-guk';
 $aktoriausPavarde = 'Seo';
-$inicialai = $aktoriausVardas[0] . $aktoriausPavarde[0];
+$inicialai = $aktoriausVardas[0] . '.' .$aktoriausPavarde[0] . '.';
 
 echo $inicialai;
+/* 
+echo '<br>';
 
+$name = 'Keanu';
+$lastname = 'Reeves';
+$nameFirstLetter = substr($name,0,1);
+$lastnameFirstLetter = substr($lastname, 0,1);
+
+$newString = $nameFirstLetter . $lastnameFirstLetter;
+echo $newString;
+*/
 
 echo "<br>";
 echo "<br>";
@@ -127,7 +137,6 @@ if (mb_strlen($string[$index]) <=5) {
 return $zodziai + zodziuSkaiciavimas($string, $index+1);
 }
 
-
 echo "<br>";
 echo "<br>";
 echo '10-tas uzdavinys' . "<br>";
@@ -136,17 +145,27 @@ echo "<br>";
 //Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
 
 $characters = 'abcdefghijklmnopqrstuvwxyz';
-$length = 4;
+$length = 3;
 
 echo stringGenerator($characters, $length);
 
 function stringGenerator($string1, $length){
     
     if ($length == 0) {
-        return '';
+        return;
     }
     $generatedString = $string1[rand(0, strlen($string1)-1)];
 
     return $generatedString .= stringGenerator($string1, $length - 1);
 }
+/*
+kitoks 10 sprendimas
 
+$characters = range( 'a', 'z' );
+$string = implode($characters);
+
+echo "Full ABC string: $string";
+echo '<br>';
+
+$randomString = substr(str_shuffle($string), 0, 3);
+echo $randomString;*/
