@@ -108,23 +108,23 @@ echo "<br>";
 $string1 = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
 $string2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
 
-$string1Splitted = explode(" ",$string1 );
-$string2Splitted = explode(" ",$string2 );
-$ilgis = 0;
+$splittedString1 = explode(" ",$string1 );
+$splittedString2 = explode(" ",$string2 );
+$index = 0;
 
-echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($string1Splitted, $ilgis) . "<br>";
+echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($splittedString1, $index) . "<br>";
 echo "<br>";
-echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($string2Splitted, $ilgis) . "<br>";
+echo 'žodžių trumpesnių arba lygių nei 5 raidės yra:  ' . zodziuSkaiciavimas ($splittedString2, $index) . "<br>";
 
-function zodziuSkaiciavimas ($string, $ilgis){
+function zodziuSkaiciavimas ($string, $index){
     $zodziai = 0;
-    if (count($string) == $ilgis) {
+    if (count($string) == $index) {
     return;
 }
-if (mb_strlen($string[$ilgis]) <=5) {
+if (mb_strlen($string[$index]) <=5) {
     $zodziai++;
 }
-return $zodziai + zodziuSkaiciavimas($string, $ilgis+1);
+return $zodziai + zodziuSkaiciavimas($string, $index+1);
 }
 
 
