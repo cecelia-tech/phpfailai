@@ -38,7 +38,7 @@ echo 'B DALIS';
 echo "<br>";
 echo "<br>";
 
-$maxValue = $masyvas[0];
+ $maxValue = 0;
 $maxValueIndex = 0;
 foreach ($masyvas as $indexas => $skaicius) {
     if ($skaicius >  $maxValue) {
@@ -46,7 +46,8 @@ foreach ($masyvas as $indexas => $skaicius) {
         $maxValueIndex = $indexas;
     }
 }
-
+// $maxValueIndex = array_keys($masyvas, max($masyvas));
+// $maxValue = max($masyvas);
 echo 'Max reiksme: ' . ' ' . $maxValue;
 echo "<br>";
 echo "<br>";
@@ -90,9 +91,7 @@ echo "<br>";
 echo "<br>";
 
 $masyvas = array_pad($masyvas, 40, 0);
-//$f = array_fill(0, 10, 0);
 
-//$f = array_fill(0, 5, rand(0, 10));
 foreach ($masyvas as $key => $value) {
     if ($key > 29) {
         $masyvas[$key] = rand(5, 25);
@@ -145,6 +144,7 @@ echo "<br>";
 echo 'H DALIS'; 
 echo "<br>";
 echo "<br>";
+
 $boolean = true;
 foreach ($masyvas as $key => $value) {
     
@@ -300,15 +300,78 @@ echo "6-as uzdavinys";
 echo "<br>";
 echo "<br>";
 
-$skaiciuMasyvas1 = range(100, 999);
-$skaiciuMasyvas2 = array_fill(0, 100, 0);
+$skaiciuMasyvas1 = [];
+$skaiciuMasyvas2 = [];
+
+foreach (range(1, 100) as $value) {
+    $skaicius = rand(100, 999);
+    $skaiciuMasyvas1[] = $skaicius;
+}
 
 // foreach ($skaiciuMasyvas1 as $key => &$value) {
 //     //$skaicius = rand(100, 999);
 //     if (!(in_array($skaicius, $skaiciuMasyvas1))) {
 //             $value = $skaicius;
-//         }
+//         } else {
+                //$value = rand(100, 999);
+//}
 // }
 // unset($value);
+$uniqueArray1 = array_unique($skaiciuMasyvas1);
+print_r($uniqueArray1);
+echo "<br>";
+foreach (range(1, 100) as $value) {
+    $skaicius = rand(100, 999);
+    $skaiciuMasyvas2[] = $skaicius;
+}
+$uniqueArray2 = array_unique($skaiciuMasyvas2);
+print_r($uniqueArray2);
 
-print_r($skaiciuMasyvas1);
+echo "<br>";
+echo "<br>";
+echo "7-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$uniqueArray1Values = array_diff($uniqueArray1, $uniqueArray2);
+
+print_r($uniqueArray1Values);
+
+
+echo "<br>";
+echo "<br>";
+echo "8-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$besikartojanciosReiksmes = array_intersect($uniqueArray1, $uniqueArray2);
+
+print_r($besikartojanciosReiksmes);
+
+echo "<br>";
+echo "<br>";
+echo "9-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$upsideDownArray = array_combine($skaiciuMasyvas1, $skaiciuMasyvas2);
+
+print_r($upsideDownArray);
+
+echo "<br>";
+echo "<br>";
+echo "10-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$array = array_fill(0, 10, 0);
+
+foreach ($array as $key => &$value) {
+    if ($key < 2) {
+        $value = rand(5, 25);
+    } else {
+        $value = $array[$key - 1] + $array[$key - 2];
+    }
+}
+unset($value);
+print_r($array);
