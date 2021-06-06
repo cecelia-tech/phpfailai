@@ -46,6 +46,28 @@ foreach ($masyvas as $indexas => $skaicius) {
         $maxValueIndex = $indexas;
     }
 }
+
+/* 
+DESTYTOJO SPRENDIMAS
+$max = 5;
+$ind = [];
+
+foreach ($masyvas as $key => $value) {
+    if ($value > $max) {
+        $max = $value;
+        $ind = [];
+    }
+    if ($value == $max) {
+        $ind[] = $key; 
+        suraso indeksus jei toks pat max sk. yra kelis kartus
+    }
+} */
+/* 
+$maxValue = max($masyvas); 
+$maxIndex = array_search(max($masyvas), $masyvas);
+
+echo "$maxIndex => $maxValue";
+*/
 // $maxValueIndex = array_keys($masyvas, max($masyvas));
 // $maxValue = max($masyvas);
 echo 'Max reiksme: ' . ' ' . $maxValue;
@@ -153,7 +175,17 @@ foreach ($masyvas as $key => $value) {
         $boolean = false;
     }
 }
+/* 
+DESTYTOJO SPRENDIMAS
 
+reset($masyvas);
+$ind10 = false;
+do {
+    $ind10 = key($masyvas);
+    $val = current($masyvas);
+    next($masyvas);
+} while(key($masyvas)!==null && $val < 10);
+*/
 echo "<br>";
 echo "<br>";
 echo 'I DALIS'; 
@@ -193,7 +225,6 @@ foreach ($raidziuMasyvas as $key => &$value) {
         $d++;
     }
 }
-
 unset($value);
 
 print_r($raidziuMasyvas);
@@ -248,7 +279,7 @@ foreach ($raidziuMasyvas1 as $key => $value) {
 print_r($didelisMasyvas);
 
 
-$valuesCount = array_count_values($didelisMasyvas);
+$valuesCount = array_count_values($didelisMasyvas); //kiek kokiu value yra masyve, value tampa index, o value kiek kart pasikartojo masyve
 $nesikartojanciosReiksmes = [];
 foreach ($valuesCount as $key => $value) {
     if ($value === 1) {
@@ -308,15 +339,6 @@ foreach (range(1, 100) as $value) {
     $skaiciuMasyvas1[] = $skaicius;
 }
 
-// foreach ($skaiciuMasyvas1 as $key => &$value) {
-//     //$skaicius = rand(100, 999);
-//     if (!(in_array($skaicius, $skaiciuMasyvas1))) {
-//             $value = $skaicius;
-//         } else {
-                //$value = rand(100, 999);
-//}
-// }
-// unset($value);
 $uniqueArray1 = array_unique($skaiciuMasyvas1);
 print_r($uniqueArray1);
 echo "<br>";
@@ -327,6 +349,16 @@ foreach (range(1, 100) as $value) {
 $uniqueArray2 = array_unique($skaiciuMasyvas2);
 print_r($uniqueArray2);
 
+// foreach ($skaiciuMasyvas1 as $key => &$value) {
+//     //$skaicius = rand(100, 999);
+//     if (!(in_array($skaicius, $skaiciuMasyvas1))) {
+//             $value = $skaicius;
+//         } else {
+                //$value = rand(100, 999);
+//}
+// }
+// unset($value);
+
 echo "<br>";
 echo "<br>";
 echo "7-as uzdavinys";
@@ -334,6 +366,7 @@ echo "<br>";
 echo "<br>";
 
 $uniqueArray1Values = array_diff($uniqueArray1, $uniqueArray2);
+//grazina reiksmes kuriu nera 2-oj array, bet yra 1-oj
 
 print_r($uniqueArray1Values);
 
@@ -345,6 +378,7 @@ echo "<br>";
 echo "<br>";
 
 $besikartojanciosReiksmes = array_intersect($uniqueArray1, $uniqueArray2);
+//grazinma reiksmes kurios yra abiejose array
 
 print_r($besikartojanciosReiksmes);
 
