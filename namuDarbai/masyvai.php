@@ -389,7 +389,7 @@ echo "<br>";
 echo "<br>";
 
 $upsideDownArray = array_combine($skaiciuMasyvas1, $skaiciuMasyvas2);
-
+//all elements of one array will be the keys of new array and all elements of the second array will be the values of this new array.
 print_r($upsideDownArray);
 
 echo "<br>";

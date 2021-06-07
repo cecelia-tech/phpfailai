@@ -56,15 +56,17 @@ echo "<br>";
 echo "<br>";
 
 //_d($masyvas);  
+$reiksmes = [];
 $reiksme = 0;
  foreach (range(1, 5) as $key => $value) {
      foreach (range(1, 10) as $key2 => $value2) {
          $reiksme += $masyvas[$key2][$key];
-         
      }
-     echo $reiksme. "<br>";
+     $reiksmes[] = $reiksme;
      $reiksme = 0;
  }
+
+ print_r($reiksmes);
 
  echo "<br>";
 echo "<br>";
@@ -94,6 +96,7 @@ foreach ($masyvas as $key => $value) {
          $reiksme += $value2;
     }
     $sudetinisMasyvas[] = $reiksme;
+    $reiksme = 0;
 }
 
 print_r($sudetinisMasyvas);
@@ -112,15 +115,18 @@ foreach (range(1, 10) as $key => $value) {
         $masyvas2 [$key][$key2] = $raides[rand(0, count($raides) - 1)];
     }
 }
-
+echo 'Pirminis masyvas';
+echo "<br>";
 print_r($masyvas2);
-_d($masyvas2);
+
+echo "<br>";
+echo "<br>";
 
 foreach ($masyvas2 as $key => $value) {
-    // foreach ($value as $key2 => $value2) {
-    //     sort($masyvas2 [$key]);
-    // }
+    
     sort($masyvas2[$key]);
 }
-
+echo 'Surusiuotas masyvas';
+echo "<br>";
 print_r($masyvas2);
+_d($masyvas2);
