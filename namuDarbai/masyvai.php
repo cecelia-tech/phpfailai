@@ -398,14 +398,12 @@ echo "10-as uzdavinys";
 echo "<br>";
 echo "<br>";
 
-$array = array_fill(0, 10, 0);
-
-foreach ($array as $key => &$value) {
-    if ($key < 2) {
-        $value = rand(5, 25);
+$array = [];
+foreach (range(1, 10) as $key => $value) {
+     if ($key < 2) {
+        $array[] = rand(5, 25);
     } else {
-        $value = $array[$key - 1] + $array[$key - 2];
+        $array[] = $array[$key - 1] + $array[$key - 2];
     }
 }
-unset($value);
 print_r($array);
