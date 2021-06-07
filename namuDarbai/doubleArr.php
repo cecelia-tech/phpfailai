@@ -67,7 +67,17 @@ $reiksme = 0;
  }
 
  print_r($reiksmes);
+/* 
+DESTYTOJO VARIANTAS
 
+$sums = [];
+
+foreach ($masyvas as $index1 => $val1) {
+    foreach ($val1 as $index2 => $val2) {
+        $sums[$index2] = ($sums[$index2] ?? 0) + $val2;
+    }
+}
+*/
  echo "<br>";
 echo "<br>";
 echo 'D DALIS'; 
@@ -82,7 +92,16 @@ foreach ($masyvas as $key => $value) {
 
 print_r($masyvas);
 //_d($masyvas);
+/* 
+KITOKS SPRENDIMAS
 
+foreach ($masyvas as $key => $_) {
+    $masyvas[$key][] = rand(5, 25);
+    $masyvas[$key][] = rand(5, 25);
+}
+
+_d($masyvas, '2d');
+*/
  echo "<br>";
 echo "<br>";
 echo 'E DALIS'; 
@@ -123,10 +142,90 @@ echo "<br>";
 echo "<br>";
 
 foreach ($masyvas2 as $key => $value) {
-    
     sort($masyvas2[$key]);
 }
 echo 'Surusiuotas masyvas';
 echo "<br>";
 print_r($masyvas2);
-_d($masyvas2);
+//_d($masyvas2);
+
+echo "<br>";
+echo "<br>";
+echo "4-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+usort($masyvas2, function($a, $b) {
+
+$ak = (int) in_array('K', $a);
+$bk = (int) in_array('K', $b);
+
+if ($ak + $bk == 1) {
+    return $bk <=> $ak;
+}
+return count($a) <=> count($b);
+
+});
+
+//_d($masyvas2);
+print_r($masyvas2);
+
+echo "<br>";
+echo "<br>";
+echo "5-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$users = [];
+foreach (range(1, 30) as $key => $value) {
+    $users[$key] = ['user_id' => rand(1, 1000000), 'place_in_row' => rand(0, 100)];
+}
+print_r($users);
+//_d($users);
+
+echo "<br>";
+echo "<br>";
+echo "6-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+//PAGAL USER_ID DIDEJIMO TVARKA
+usort($users, function($a, $b) {
+    return $a['user_id'] <=> $b['user_id'];
+});
+
+//_d($users);
+print_r($users);
+
+//PAGAL place_in_row MAZEJIMO TVARKA
+usort($users, function($a, $b) {
+    return $b['place_in_row'] <=> $a['place_in_row'];
+});
+
+//_d($users);
+print_r($users);
+
+echo "<br>";
+echo "<br>";
+echo "7-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+$name = '';
+$surname = '';
+foreach ($users as $key => $value) {
+    foreach (rand(5, 15) as $key2 => $value2) {
+        $name .= chr(rand(65,90));
+    }
+    foreach (rand(5, 15) as $key3 => $value3) {
+        $surname = chr(rand(65,90));
+    }
+echo "$name ir $surname";
+    //  $users [$key] .= ['name' => $name];
+    //  $users [$key] .= ['surname' => $surname];
+    $name = '';
+    $surname = '';
+}
+
+// _d($users);
+// print_r($users);

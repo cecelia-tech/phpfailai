@@ -207,33 +207,22 @@ echo "<br>";
 echo "<br>";
 
 $raides = ['A', 'B', 'C', 'D'];
-$raidziuMasyvas = array_fill(0, 200, 0);
-$a = 0;
-$b = 0;
-$c = 0;
-$d = 0;
+$raidziuMasyvas = [];
 
-foreach ($raidziuMasyvas as $key => &$value) {
-    $value = $raides[rand(0, count($raides)-1)];
-    if ($value === 'A') {
-        $a++;
-    } elseif ($value === 'B') {
-        $b++;
-    } elseif ($value === 'C') {
-        $c++;
-    } else {
-        $d++;
-    }
+foreach (range(1, 200) as $key => $value) {
+    $raidziuMasyvas[] = $raides[rand(0, count($raides)-1)];
 }
-unset($value);
+
+$raidziuKiekiai = array_count_values($raidziuMasyvas);
 
 print_r($raidziuMasyvas);
 echo "<br>";
 echo "<br>";
-echo "A pasikartojo $a kartus, B - $b, C - $c, D - $d.";
+print_r($raidziuKiekiai);
+echo "<br>";
+echo "<br>";
 
-echo "<br>";
-echo "<br>";
+
 echo "4-as uzdavinys";
 echo "<br>";
 echo "<br>";
@@ -249,26 +238,23 @@ echo "<br>";
 echo "<br>";
 
 $raides = ['A', 'B', 'C', 'D'];
-$raidziuMasyvas1 = array_fill(0, 200, 0);
+$raidziuMasyvas1 = [];
 
-foreach ($raidziuMasyvas1 as $key => &$value) {
-    $value = $raides[rand(0, count($raides)-1)];
+foreach (range(1, 200) as $key => $value) {
+    $raidziuMasyvas1[] = $raides[rand(0, count($raides)-1)];
 }
-unset($value);
 
-$raidziuMasyvas2 = array_fill(0, 200, 0);
+$raidziuMasyvas2 = [];
 
-foreach ($raidziuMasyvas2 as $key => &$value) {
-    $value = $raides[rand(0, count($raides)-1)];
+foreach (range(1, 200) as $key => $value) {
+    $raidziuMasyvas2[] = $raides[rand(0, count($raides)-1)];
 }
-unset($value);
 
-$raidziuMasyvas3 = array_fill(0, 200, 0);
+$raidziuMasyvas3 = [];
 
-foreach ($raidziuMasyvas3 as $key => &$value) {
-    $value = $raides[rand(0, count($raides)-1)];
+foreach (range(1, 200) as $key => $value) {
+    $raidziuMasyvas3 [] = $raides[rand(0, count($raides)-1)];
 }
-unset($value);
 
 $didelisMasyvas = [];
 
