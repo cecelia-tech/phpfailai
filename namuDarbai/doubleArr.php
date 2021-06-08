@@ -182,7 +182,25 @@ foreach (range(1, 30) as $key => $value) {
 }
 print_r($users);
 //_d($users);
+/* 
+DESTYTOJO SPRENDIMAS
 
+$masyvas = [];
+$count = 0;
+do {
+    $count++;
+    $uid = rand(1, 50);
+    foreach ($masyvas as $user) {
+        if ($user['user_id'] == $uid) {
+            continue 2;
+        }
+    }
+    $masyvas[] = [
+        'user_id' => $uid,
+        'place_in_row' => rand(0, 100)
+    ];
+} while(count($masyvas) < 30);
+*/
 echo "<br>";
 echo "<br>";
 echo "6-as uzdavinys";
@@ -194,7 +212,7 @@ usort($users, function($a, $b) {
     return $a['user_id'] <=> $b['user_id'];
 });
 
-//_d($users);
+_d($users);
 print_r($users);
 
 //PAGAL place_in_row MAZEJIMO TVARKA
@@ -202,7 +220,7 @@ usort($users, function($a, $b) {
     return $b['place_in_row'] <=> $a['place_in_row'];
 });
 
-//_d($users);
+_d($users);
 print_r($users);
 
 echo "<br>";
@@ -213,19 +231,78 @@ echo "<br>";
 
 $name = '';
 $surname = '';
+$ats = [];
 foreach ($users as $key => $value) {
-    foreach (rand(5, 15) as $key2 => $value2) {
+    $name = '';
+     $surname = '';
+     $ats = [];
+     $ns =[];
+    foreach (range(1, rand(5, 15)) as $key2 => $value2) {
         $name .= chr(rand(65,90));
     }
-    foreach (rand(5, 15) as $key3 => $value3) {
-        $surname = chr(rand(65,90));
+    foreach (range(1, rand(5, 15)) as $key3 => $value3) {
+        $surname .= chr(rand(65,90));
     }
-echo "$name ir $surname";
-    //  $users [$key] .= ['name' => $name];
+ $ns[$key][] = ['name' => $name];
+ $ns [$key][] = ['surname' => $surname];
+      $ats = array_merge($users[$key],$ns);
     //  $users [$key] .= ['surname' => $surname];
-    $name = '';
-    $surname = '';
+     
 }
 
-// _d($users);
-// print_r($users);
+ //_d($ats);
+print_r($ats);
+
+echo "<br>";
+echo "<br>";
+echo "8-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+/* 
+galimas sprendimas
+
+$masyvas = [];
+
+foreach (range(1, 10) as $key1 => $_) {
+    $sk = rand(0, 5);
+    if ($sk == 0) {
+        $masyvas[$key1] = rand(0, 10);
+    } else {
+        foreach (range(1, $sk) as $key2 => $_) {
+            $masyvas[$key1][] = rand(0, 10); 
+        }
+    }
+}
+_d($masyvas);
+*/
+
+echo "<br>";
+echo "<br>";
+echo "9-as uzdavinys";
+echo "<br>";
+echo "<br>";
+
+/* 
+galimas sprendimas
+
+usort($masyvas, function($a, $b) {
+    $asum = 0;
+    if(is_array($a)) {
+        foreach($a as $value) {
+            $asum += $value;
+        }
+        $a = $asum;
+    }
+    
+    $bsum = 0; 
+    if(is_array($b)) {
+        foreach($b as $value) {
+            $bsum += $value;
+        }
+        $b = $bsum;
+    }
+    return $a <=> $b;
+}
+);
+*/
