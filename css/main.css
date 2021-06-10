@@ -1,0 +1,62 @@
+.black {
+  width: 100%;
+  background-color: black;
+}
+
+.red {
+  background-color: royalblue;
+}
+.label {
+  color: white;
+}
+.linkai {
+  display: block;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+.lemon {
+  background-color: #f1d11c;
+}
+.orange {
+  background-color: orange;
+}
+.linkai2 {
+  display: grid;
+  width: 100%;
+  place-items: center;
+
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+.labels {
+  /* margin: 100px; */
+  display: inline;
+  float: left;
+  background-color: lightcoral;
+  border: solid 2px #0005;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.forma {
+  display: inline-block;
+  text-align: center;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  /* -ms-transform: translate(-50%, -50%); */
+  /* transform: translate(-50%, -50%);  */
+}
+div {
+  /* display: grid; */
+  width: 100%;
+  /* place-items: center; */
+  /* position: relative; */
+}
+.pink {
+  background-color: pink;
+}
+.rose {
+  background-color: rosybrown;
+}

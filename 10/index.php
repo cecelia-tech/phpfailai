@@ -32,7 +32,7 @@ _d($_SERVER['REQUEST_METHOD'], 'METODAS');
 
 
 if (isset($_GET['rodyti'])) {
-    # code...
+    
 
     if ($_GET['rodyti'] == 'miestai') {
         echo 'rodom miestus', 'Puslapis:  ' . ($_GET['puslapis'] ?? 1);
