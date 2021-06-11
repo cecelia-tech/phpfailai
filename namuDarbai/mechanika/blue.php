@@ -14,7 +14,7 @@ if ($_GET['id'] == 2) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
-    <title>Document</title>
+    <title>Blue</title>
 </head>
 <body style="background-color:royalblue">
     <a class="linkai2" href="http://localhost/phpfailai/namuDarbai/mechanika/blue.php?id=2">Come Back</a>

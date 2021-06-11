@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    header('Location: http://localhost/phpfailai/namuDarbai/mechanika/rose.php');
+    header('Location: http://localhost/phpfailai/namuDarbai/mechanika/rose.php?id');
     die;
 }
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Pink</title>
 </head>
 <body class="pink">
-    <form action="http://localhost/phpfailai/namuDarbai/mechanika/pink.php" method="post">
+    <form action="http://localhost/phpfailai/namuDarbai/mechanika/pink.php" method="POST">
     <button type="submit">Go To Rose</button>
     </form>
 </body>

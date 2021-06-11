@@ -15,10 +15,10 @@
 </html>
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    eader('Location: http://localhost/phpfailai/namuDarbai/mechanika/pink.php');
-die;
+
+if (!(isset($_GET['id']))) {
+        header('Location: http://localhost/phpfailai/namuDarbai/mechanika/pink.php');
+    die;
 }
-h
 
 ?>
