@@ -1,32 +1,35 @@
 <?php
 
 $colour = 'rosybrown';
+
+$kiekSugeneruota = 0;
+    if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+    foreach (range(1, rand(3, 10)) as $key => $value) {
+        $label = "<label style='display: block;' for='abc'>" . chr(rand(65, 90)) . "</label>";
+        $input = " <input style='display: block;' type='checkbox' name='abc[]' id='abc'> ";
+        $total .= $label . $input;
+        $kiekSugeneruota++;
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $colour = 'white';
     $display = 'none';
     $display2 = 'inline-block';
     if (isset($_POST['abc'])) {
         $count = 'Buvo pasirinkta ' . count($_POST['abc']);
-        $kiekSugeneruota;
-        //echo $kiekSugeneruota;
+        //$kiekSugeneruota;
     } else{
         $count = 'Ne vienas nebuvo pasirinktas.';
-        // $kiekSugeneruota = 0;
     }
-    
 } else {
     $display = 'block';
     $display2 = 'none';
+    
+    
+    //$kiekSugeneruota = "Is viso buvo sugeneruota: " . $sugeneruota;
 }
 
-    $sugeneruota = 0;
-    foreach (range(1, rand(3, 10)) as $key => $value) {
-        $label = "<label style='display: block;' for='abc'>" . chr(rand(65, 90)) . "</label>";
-        $input = " <input style='display: block;' type='checkbox' name='abc[]' id='abc'> ";
-        $total .= $label . $input;
-        $sugeneruota++;
-    }
-    $kiekSugeneruota = "Is viso buvo sugeneruota: " . $sugeneruota;
 ?>
  
 <!DOCTYPE html>
@@ -40,9 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body style="background-color: <?=$colour?>">
 <h1><?=$count?> </h1>
 <h1 style="display:<?=$display2?> "><?=$kiekSugeneruota?></h1>
+
 <form style="display: <?=$display?>;" action="" method="POST">
 <?=$total?>
-<button type="submit">Pakeisti spalva</button>
+<button type="submit">Rodyti</button>
 
 </form>
     

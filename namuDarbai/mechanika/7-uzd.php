@@ -2,14 +2,17 @@
 _d($_GET);
 _d($_POST);
 
+$colour = 'red';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo '<body style="background-color:green">';
+    $colour = 'green';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $colour = 'yellow';
     header("Location: http://localhost/phpfailai/namuDarbai/mechanika/6-uzd.php");
     die;
-    echo '<body style="background-color:yellow">';
+    
 } else {
-    echo '<body style="background-color:white">';
+    $colour = 'white';
+    //echo '<body style="background-color:white">';
 }
 ?>
 <!DOCTYPE html>
@@ -21,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <link rel="stylesheet" href="../../css/main.css">
     <title>Du Mygtukai</title>
 </head>
-<body style="background-color: white">
+<body style="background-color:<?=$colour?>">
     <div>
-<form class="forma" action="http://localhost/phpfailai/namuDarbai/mechanika/6-uzd.php" method="get">
+<form  class="forma" action="http://localhost/phpfailai/namuDarbai/mechanika/6-uzd.php" method="get">
 <!-- <label for="">GET</label> -->
 <button class="labels" type="submit">GET</button>
 </form>
@@ -37,7 +40,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </body>
 </html>
 
-<?php
-
-
-?>

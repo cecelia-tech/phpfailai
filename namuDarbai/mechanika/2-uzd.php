@@ -1,3 +1,15 @@
+<?php
+//spalva  dc143c
+_d($_GET);
+
+if (isset($_GET['colour'])) {
+    $spalva = $_GET['colour'];
+       $insert = "<body style=background-color:#" . $spalva . ">";
+} else {
+    $insert ='<body style="background-color:black">';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +19,9 @@
     <title>Namu darbai</title>
     <link rel="stylesheet" href="../../css/main.css">
 </head>
-<body>
+<?=$insert?>
     <a class="linkai" href="http://localhost/phpfailai/namuDarbai/mechanika/2-uzd.php">Homepage</a>
     
 </body>
 </html>
 
-<?php
-//spalva  dc143c
-_d($_GET);
-if (isset($_GET['colour'])) {
-    $spalva = $_GET['colour'];
-    
-       echo "<body style=background-color:#" . $spalva . "></body>";
-    
-} else {
-    echo '<body style="background-color:black"></body>';
-}
-?>
