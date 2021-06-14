@@ -6,14 +6,10 @@ $colour = 'red';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $colour = 'green';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $colour = 'yellow';
-    header("Location: http://localhost/phpfailai/namuDarbai/mechanika/6-uzd.php");
+    header("Location: http://localhost/phpfailai/namuDarbai/mechanika/7-uzd.php");
     die;
-    
-} else {
-    $colour = 'white';
-    //echo '<body style="background-color:white">';
-}
+    $colour = 'green';
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">

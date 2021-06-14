@@ -1,3 +1,12 @@
+<?php
+
+if (!(isset($_GET['id']))) {
+        header('Location: http://localhost/phpfailai/namuDarbai/mechanika/pink.php');
+    die;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +23,3 @@
 </body>
 </html>
 
-<?php
-
-if (!(isset($_GET['id']))) {
-        header('Location: http://localhost/phpfailai/namuDarbai/mechanika/pink.php');
-    die;
-}
-
-?>

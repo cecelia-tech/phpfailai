@@ -6,9 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo '<body style="background-color:green">';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
     echo '<body style="background-color:yellow">';
-} else {
-    echo '<body style="background-color:white">';
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +32,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </div>
 </body>
 </html>
-
-<?php
-
-
-?>

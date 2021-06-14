@@ -2,33 +2,21 @@
 
 $colour = 'rosybrown';
 
-$kiekSugeneruota = 0;
-    if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
-    foreach (range(1, rand(3, 10)) as $key => $value) {
-        $label = "<label style='display: block;' for='abc'>" . chr(rand(65, 90)) . "</label>";
-        $input = " <input style='display: block;' type='checkbox' name='abc[]' id='abc'> ";
-        $total .= $label . $input;
-        $kiekSugeneruota++;
-    }
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $colour = 'white';
-    $display = 'none';
-    $display2 = 'inline-block';
-    if (isset($_POST['abc'])) {
-        $count = 'Buvo pasirinkta ' . count($_POST['abc']);
+
+    header('Location: http://localhost/phpfailai/namuDarbai/mechanika/9-uzd.php?count=' . count($_POST['abc']) . '&sugeneruota=' . $kiekSugeneruota);
+}
+    
+    if (isset($_GET['count'])) {
+        $colour = 'white';
+        echo 'Buvo pasirinkta ' . $_GET['count'];
         //$kiekSugeneruota;
-    } else{
+    } elseif (isset($_GET['sugeneruota'])) {
+        echo 'is viso buvo sugeneruota: ' . $_GET['sugeneruota'];
+    } 
+    else{
         $count = 'Ne vienas nebuvo pasirinktas.';
     }
-} else {
-    $display = 'block';
-    $display2 = 'none';
-    
-    
-    //$kiekSugeneruota = "Is viso buvo sugeneruota: " . $sugeneruota;
-}
 
 ?>
  
@@ -41,14 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Checkbox</title>
 </head>
 <body style="background-color: <?=$colour?>">
-<h1><?=$count?> </h1>
-<h1 style="display:<?=$display2?> "><?=$kiekSugeneruota?></h1>
 
-<form style="display: <?=$display?>;" action="" method="POST">
-<?=$total?>
-<button type="submit">Rodyti</button>
+<form action="" method="POST">
+<?php
+
+$kiekSugeneruota = 0;
+    if (!(isset($_GET['count']))) {
+    foreach (range(1, rand(3, 10)) as $key => $value) {
+        echo "<label style='display: block;' for='abc'>" . chr(rand(65, 90)) . "</label>";
+        echo " <input style='display: block;' type='checkbox' name='abc[]' id='abc'> ";
+        $kiekSugeneruota++;
+    }
+    echo "<button type=\"submit\">Rodyti</button>";
+}
+?>
+
 
 </form>
     
 </body>
 </html>
+

@@ -1,11 +1,10 @@
 <?php
-//spalva  dc143c
 _d($_GET);
 if (isset($_GET['spalva'])) {
     $spalva = $_GET['spalva'];
-       $insert = "<body style=background-color:#" . $spalva . "></body>";
+       $insert = "<body style=background-color:#" . $spalva . ">";
 } else {
-    $insert = '<body style="background-color:black"></body>';
+    $insert = '<body style="background-color:black">';
 }
 ?>
 
