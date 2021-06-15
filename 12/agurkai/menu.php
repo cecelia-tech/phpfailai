@@ -1,9 +1,3 @@
-<?php
-
-
-?>
-
 <div>
-<a href="?action=addBox">Prideti nauja deze</a>
-
+<a href="?action=add-box">Prideti nauja deze</a>
 </div>
