@@ -1,6 +1,18 @@
 <?php
+session_start();
 
-setcookie('php', 'back end');
+// $mas = 'AX';
+
+// $_SESSION['aiksas'] = $mas;
+
+// $_SESSION['aaa'] = range('A', 'Z');
+
+
+
+// setcookie('Barsukas', 'Blogas gyvuniukas', time() + 3600 * 24 * 365, '/');  nustatomas galiojimo laikas
+
+// _d($_COOKIE);
+
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +21,10 @@ setcookie('php', 'back end');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cookies</title>
+    <title>Cookies</title>
 </head>
 <body>
-    
+    <?= $_SESSION['aiksas'] ?>
+    <?php echo $_SESSION['aiksas'] ?>
 </body>
 </html>
