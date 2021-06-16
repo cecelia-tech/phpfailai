@@ -1,0 +1,9 @@
+.container {
+  display: grid;
+  width: 100%;
+  place-items: center;
+}
+.homepageLink {
+  display: block;
+  text-decoration: none;
+}
