@@ -9,7 +9,8 @@
 <body>
     <?php include __DIR__ . '/menu.php' ?>
     <form action="?action=add-box" method="post">
-        <button>Pridėti naują dėžę</button>
-    </form>
+        <button type="submit">Pridėti naują dėžę</button>
+    </form> 
+    <?='sssss'?>
 </body>
 </html>

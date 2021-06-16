@@ -4,20 +4,33 @@ function redirect() {
     header('Location: http://localhost/phpfailai/12/agurkai/');
     die;
 }
+function getMessage() 
+{
+    if (!isset($_SESSION['msg'])) {
+        return false;
+    }
+    $msg = $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    return $msg;
+}
 
+function setMessage(string $msg)
+{
+    $_SESSION['msg'] = $msg;
+}
 // box ['id' => 25, 'amount' => 258]
 
-if (!file_exists(__DIR__.'/boxes.json')) {
+if (!(file_exists(__DIR__.'/boxes.json'))) {
     file_put_contents(__DIR__.'/boxes.json', json_encode([]));
 }
-$boxes = json_decode( file_get_contents(__DIR__.'/boxes.json'), 1);
+$boxes = json_decode(file_get_contents(__DIR__.'/boxes.json'), 1);
 //
 
 //Routerio Prosenelis
 
 // 1. Agurku deziu saraso atvaizdavimas GET
 if (!isset($_GET['action']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
-    require __DIR__. '/home.php';
+    require __DIR__. '/home1.php';
 }
 
 // 2. Pridejimo atvaizdavimas GET
@@ -54,3 +67,4 @@ elseif ($_GET['action'] == 'add-box' && $_SERVER['REQUEST_METHOD'] == 'POST') {
 elseif ($_GET['action'] == 'delete' && $_SERVER['REQUEST_METHOD'] == 'POST') {
     require __DIR__. '/doDelete.php';
 }
+

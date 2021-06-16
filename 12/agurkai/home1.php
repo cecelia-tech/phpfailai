@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php include __DIR__ . '/menu.php' ?>
+    <?php include __DIR__ . '/msg.php' ?>
     <ul>
     <?php foreach($boxes as $box) : ?>
         <li>
