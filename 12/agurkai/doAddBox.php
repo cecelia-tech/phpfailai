@@ -3,5 +3,5 @@ $box = ['id' => rand(10000000, 99999999), 'amount' => 0]; // be garantiju unikal
 $boxes[] = $box;
 //print_r( $boxes);
 file_put_contents(__DIR__.'/boxes.json', json_encode($boxes));
-getMessage('Nauja deze paruosta');
+setMessage('Nauja deze paruosta');
 redirect();

@@ -1,10 +1,20 @@
 <?php
 session_start();
-function redirect() {
+function redirect() 
+{
     header('Location: http://localhost/phpfailai/12/agurkai/');
     die;
 }
-function getMessage() 
+function redirectToAction($action, $id = 0){
+    if ($id) {
+        header('Location: http://localhost/phpfailai/12/agurkai/?action='.$action.'&id='.$id);
+    }
+    else {
+        header('Location: http://localhost/phpfailai/12/agurkai/?action='.$action);
+    }
+    die;
+}
+function getMessage()  //isima is session
 {
     if (!isset($_SESSION['msg'])) {
         return false;
@@ -14,7 +24,7 @@ function getMessage()
     return $msg;
 }
 
-function setMessage(string $msg)
+function setMessage(string $msg) // ideda i session
 {
     $_SESSION['msg'] = $msg;
 }

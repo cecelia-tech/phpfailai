@@ -9,6 +9,7 @@
 <body>
     <?php include __DIR__ . '/menu.php' ?>
     <?php $id = $_GET['id'] ?? 0 ?>
+    <?php include __DIR__ . '/msg.php' ?>
     <form action="?action=rem&id=<?= $id ?>" method="post">
         <input type="text" name="amount">
         <button>Atimti agurkus</button>
