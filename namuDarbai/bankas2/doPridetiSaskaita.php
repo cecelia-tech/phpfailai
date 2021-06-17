@@ -3,7 +3,7 @@
 include __DIR__. '/funkcijos.php';
 include __DIR__. '/msg.php';
 
-$account = ['vardas' => $_POST['vardas'], 'pavarde' => $_POST['pavarde'], 'asmensKodas' => $_POST['asmensKodas'], 'accountNr' => 'LT01'. generateAccountNr()];
+$account = ['vardas' => $_POST['vardas'], 'pavarde' => $_POST['pavarde'], 'asmensKodas' => $_POST['asmensKodas'], 'accountNr' => 'LT01'. generateAccountNr(), 'likutis' => 0];
 $accounts[] = $account;
 //print_r($account);
 file_put_contents(__DIR__.'/accounts.json', json_encode($accounts));
