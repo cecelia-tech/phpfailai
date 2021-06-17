@@ -8,7 +8,13 @@
 </head>
 <body>
     <?php include __DIR__ . '/menu.php' ?>
-    <form action="" method="post"></form>
+   
+    <form action="?action=create" method="post">
+    <input placeholder="Vardas" type="text" name="name">
+    <input placeholder="Pavarde" type="text" name="surename">
+    <input placeholder="Asmens kodas" type="text" name="code">
+    <button type="submit">Pateikti</button>
+    </form>
     
 </body>
 </html>

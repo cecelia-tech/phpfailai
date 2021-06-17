@@ -8,12 +8,15 @@
 </head>
 <body>
 <?php
-//include __DIR__. '/menu.php';
+include __DIR__. '/menu.php';
 ?>
 <div class="container">
-    <form action="?action=sukurti" method="post">
+<?php _d($_GET) ?>
+<a href="?sukurti=create">Sukurti saskaita</a>
+
+    <!-- <form action="?action=create" method="get">
         <button type="submit">Sukurti saskaita</button>
-    </form>
+    </form> -->
         <form action="http://localhost/phpfailai/namuDarbai/bankas/log-in.php?action=login" method="post">
         <button type="submit">Prisijungti</button>
     </form>
