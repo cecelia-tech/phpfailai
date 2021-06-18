@@ -38,3 +38,12 @@ function redirectToAction($action, $accountNr = 0){
     }
     die;
 }
+function redirectToAction2($action, $method){
+    if ($action && $method == 'POST') {
+        header('Location: http://localhost/phpfailai/namuDarbai/bankas2/?veiksmas='.$action);
+    }
+    else {
+        header('Location: http://localhost/phpfailai/namuDarbai/bankas2/?veiksmas='.$action);
+    }
+    die;
+}
