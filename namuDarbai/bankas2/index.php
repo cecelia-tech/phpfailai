@@ -37,3 +37,13 @@ if ($_GET['veiksmas'] == 'pridetiLesas' && $_SERVER['REQUEST_METHOD'] == 'POST')
 if ($_GET['veiksmas'] == 'isimtiLesas' && $_SERVER['REQUEST_METHOD'] == 'GET') {
     require __DIR__. '/isimtiLesas.php';
 }
+
+// pinigu isemimo is saskaitos vykdymas
+if ($_GET['veiksmas'] == 'isimtiLesas' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    require __DIR__. '/doIsimtiLesas.php';
+}
+
+// saskaitos istrynimo vykdymas
+if ($_GET['veiksmas'] == 'istrintiSaskaita' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    require __DIR__. '/doIstrintiSaskaita.php';
+}

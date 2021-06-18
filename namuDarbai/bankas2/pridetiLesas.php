@@ -7,7 +7,17 @@
     <title>Lesu inesimas</title>
 </head>
 <body>
-    <h1>atejom cia</h1>
+<?php include __DIR__ . '/menu.php' ?>
+    <h1>Prideti lesas</h1>
+    <h3>
+    <?php 
+    $accountNr = $_GET['accountNr'] ?? 0;
+    foreach ($accounts as $account) {
+        if ($account['accountNr'] == $accountNr) {
+        echo $account['vardas'] . " " . $account['pavarde'] . " saskaita. Saskaitoje yra " .  $account['likutis'] . " pinigu.";
+        }
+    } ?>
+    </h3>
     <form action="?veiksmas=pridetiLesas&accountNr=<?= $_GET['accountNr'] ?>" method="post">
     <input type="text" name="sumaPrideti">
     <button type="submit">Vykdyti</button>

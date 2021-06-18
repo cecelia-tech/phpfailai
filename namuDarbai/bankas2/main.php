@@ -19,6 +19,7 @@
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
+<?php include __DIR__ . '/menu.php' ?>
 <?php include __DIR__ . '/funkcijos.php' ?>
 <?php include __DIR__ . '/msg.php' ?>
 <!-- NUORODA I NAUJA saskaita -->
@@ -51,7 +52,10 @@
     <td><?=$account['likutis']?></td>
     <td>[<a href="?veiksmas=pridetiLesas&accountNr=<?= $account['accountNr'] ?>">Pridėti</a>]</td>
     <td>[<a href="?veiksmas=isimtiLesas&accountNr=<?= $account['accountNr'] ?>">Isimti</a>]</td>
-    <td></td>
+    <td><form action="?veiksmas=istrintiSaskaita&accountNr=<?= $account['accountNr'] ?>" method="post">
+            <button type="submit">Istrinti saskaita</button>
+            </form>
+            </td>
   </tr>
   <?php endforeach ?>
 </table>

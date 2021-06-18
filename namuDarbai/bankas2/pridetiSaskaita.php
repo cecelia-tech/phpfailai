@@ -7,8 +7,9 @@
     <title>Pridėti naują dėžę</title>
 </head>
 <body>
+<?php include __DIR__ . '/menu.php' ?>
 <?php include __DIR__. '/funkcijos.php'; ?>
-
+    <h1>Saskaitos pridejimas</h1>
     <form action="?veiksmas=pridetiSaskaita" method="post">
         <input type="text" name="vardas">
         <input type="text" name="pavarde">

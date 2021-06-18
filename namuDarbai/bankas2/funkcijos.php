@@ -28,3 +28,13 @@ function redirect()
     header('Location: http://localhost/phpfailai/namuDarbai/bankas2/');
     die;
 }
+function redirectToAction($action, $accountNr = 0){
+    if ($accountNr) {
+        header('Location: http://localhost/phpfailai/namuDarbai/bankas2/?veiksmas='.$action.'&accountNr='.$accountNr);
+        die;
+    }
+    else {
+        header('Location: http://localhost/phpfailai/namuDarbai/bankas2/?veiksmas='.$action);
+    }
+    die;
+}
