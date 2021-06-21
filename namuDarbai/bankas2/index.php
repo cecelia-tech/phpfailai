@@ -9,6 +9,9 @@ if (!(file_exists(__DIR__.'/accounts.json'))) {
 }
 $accounts = json_decode(file_get_contents(__DIR__.'/accounts.json'), 1);
 
+if (!(file_exists(__DIR__.'/darbuotojai.json'))) {
+    file_put_contents(__DIR__.'/darbuotojai.json', json_encode([]));
+}
 // jeigu GET VEIKSMO NERA METAM I MAIN
 if (!isset($_GET['veiksmas']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
     require __DIR__. '/main.php';

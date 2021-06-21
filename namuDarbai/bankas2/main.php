@@ -1,4 +1,11 @@
 <?php
+include __DIR__ . '/funkcijos.php';
+
+
+if (!isset($_SESSION['logged'])) {
+    header('Location: http://localhost/phpfailai/namuDarbai/bankas2/log-in.php');
+    die;
+}
 
 ?>
 
@@ -20,7 +27,6 @@
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <?php include __DIR__ . '/menu.php' ?>
-<?php include __DIR__ . '/funkcijos.php' ?>
 <?php include __DIR__ . '/msg.php' ?>
 <!-- NUORODA I NAUJA saskaita -->
     <div>
