@@ -3,7 +3,7 @@
 include __DIR__. '/funkcijos.php';
 include __DIR__. '/msg.php';
 
-$account = ['vardas' => $_POST['vardas'], 'pavarde' => $_POST['pavarde'], 'asmensKodas' => $_POST['asmensKodas'], 'accountNr' => 'LT01'. generateAccountNr(), 'likutis' => 0];
+$account = ['vardas' => $_POST['vardas'], 'pavarde' => $_POST['pavarde'], 'asmensKodas' => $_POST['asmensKodas'], 'accountNr' => $_POST['accountNr'], 'likutis' => 0];
 
 if (strlen($account['vardas']) <= 3 || strlen($account['pavarde']) <= 3) {
         setMessage('Vardas ir pavarde turi buti ilgesni nei 3 simboliai.');

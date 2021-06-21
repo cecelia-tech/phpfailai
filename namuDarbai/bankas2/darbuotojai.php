@@ -1,4 +1,14 @@
 <?php
+include __DIR__ . '/funkcijos.php';
+
+
+if (!isset($_SESSION['logged'])) {
+    header('Location: http://localhost/phpfailai/namuDarbai/bankas2/log-in.php');
+    die;
+}
+
+?>
+<?php
 
 $darbuotojai = [
     ['vardas' => 'Joanna', 'slaptazodis' => md5('123')],

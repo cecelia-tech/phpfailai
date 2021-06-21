@@ -1,0 +1,45 @@
+.fonas {
+  background-color: rgb(245, 224, 227);
+}
+.lenteles-virsus {
+  background-color: rgb(175, 215, 250);
+  border: 2px solid black;
+}
+.lenteles-vidus {
+  background-color: rgb(238, 230, 230);
+  border: 2px solid grey;
+}
+.mygtukas {
+  background-color: rgba(255, 128, 128, 0.1);
+  padding: 3px 10px;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+.pavadinimas {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 20px;
+}
+.nuorodos {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 5px 20px;
+}
+.nuorodos:hover {
+  background-color: rgb(175, 215, 250);
+  /* padding: 3px 10px; */
+  border: 1px solid black;
+  border-radius: 7px;
+}
+.centruoti {
+  text-align: center;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
