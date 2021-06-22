@@ -16,7 +16,7 @@ if (!isset($_SESSION['logged'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>MAIN</title>
+    <title>Bankas</title>
 </head>
 <body class="fonas">
 <?php include __DIR__ . '/menu.php' ?>
@@ -29,7 +29,7 @@ if (!isset($_SESSION['logged'])) {
     <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>
     <?php
-     usort($accounts, function($a, $b) {
+      usort($accounts, function($a, $b) {
         return $a['pavarde'] <=> $b['pavarde'];
     })?>
   <tr class="lenteles-virsus">

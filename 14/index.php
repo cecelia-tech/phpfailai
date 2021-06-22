@@ -3,6 +3,7 @@
 // Programuotojas Petras
 
 require __DIR__ . '/Bebras.php';
+require __DIR__ . '/UpinisBebras.php';
 
 
 $bebras1 = new Bebras;
@@ -19,7 +20,9 @@ echo '<pre>';
 $bebras2->name = 'Bobikas';
 
 echo $bebras1->name;
-echo $bebras->getAge;
+echo $bebras1->getAge;
+
+$bebras2->setAge(8);
 
 $bebras1->sayHello();
 $bebras2->sayHello();
