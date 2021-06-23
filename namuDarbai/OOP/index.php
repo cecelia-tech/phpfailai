@@ -4,6 +4,7 @@ require __DIR__. '/Kibiras1.php';
 require __DIR__. '/Pinigine.php';
 
 $kibiras = new Kibiras1;
+_d($kibiras->kiekPririnktaAkmenu());
 
 $kibiras->prideti1Akmeni();
 $kibiras->prideti1Akmeni();
@@ -22,7 +23,7 @@ echo "<br>";
 
 $pinigine = new Pinigine;
 
-$pinigine->ideti(1);
+$pinigine->ideti(1.432);
 $pinigine->ideti(6);
 
 echo '<h4>Pinigines bendra suma:</h4>';

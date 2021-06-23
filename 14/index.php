@@ -6,8 +6,8 @@ require __DIR__ . '/Bebras.php';
 require __DIR__ . '/UpinisBebras.php';
 
 
-$bebras1 = new Bebras;
-$bebras2 = new Bebras;
+$bebras1 = new UpinisBebras('Blue');
+$bebras2 = new UpinisBebras;
 $bebras3 = $bebras1;
 
 echo '<pre>';
