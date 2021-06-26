@@ -10,5 +10,6 @@ class Cart {
     }
     private function __construct(){}
 
+    //sprendziant uzdavini apie marsa
 
 }
