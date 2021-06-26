@@ -24,9 +24,4 @@ class Grybas {
             return $this->valgomas;
         }
     }
-
-    public function d()
-    {
-        echo Krepsys::$pririnktasKiekis;
-    }
 }

@@ -17,14 +17,17 @@ class Pinigine{
         } else {
             echo "<h1 style=\"color: red;\">Argumentas gali buti tik teigiamas skaicius</h1>";
         }
-        
-    }
-    public function monetos()
-    {
-        
     }
     public function skaiciuoti(){
         return $this->popieriniaiPinigai + $this->metaliniaiPinigai;
         
+    }
+    public function monetos()
+    {
+        return $this->metaliniaiPinigai;
+    }
+    public function banknotai()
+    {
+        return $this->popieriniaiPinigai;
     }
 }
