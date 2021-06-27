@@ -7,7 +7,7 @@ class MarsoPalydovas {
     private static $object1;
     private static $object2;
 
-    public function __construct($title)
+    private function __construct($title)
     {
         $this->title = $title;
     }
