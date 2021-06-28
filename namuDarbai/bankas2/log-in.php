@@ -37,16 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Log-in</title>
 </head>
-<body>
+<body class="fonas">
     <?php include __DIR__.'/menu.php'?>
     <?php include __DIR__.'/msg.php'?>
     <h1>Log-in</h1>
     <form action="http://localhost/phpfailai/namuDarbai/bankas2/log-in.php" method="post">
-    <input type="text" name="vardas">
-    <input type="password" name="slaptazodis">
-    <button type="submit">Log-in</button>
+    <input type="text" name="vardas" placeholder="Vardas">
+    <input type="password" name="slaptazodis" placeholder="Slaptazodis">
+    <button class="mygtukas"type="submit">Log-in</button>
     </form>
 </body>
 </html>

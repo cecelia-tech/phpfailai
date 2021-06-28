@@ -34,16 +34,23 @@ class Tenisininkas {
     {
 
     }
-    // public static function __set($prop, $value)
-    // {
-    //     // echo 'atejo';
-    //     // die;
-    //     // if ($prop == 'zaidejas1') {
-    //     //     self::$zaidejas1 = $value;
-    //     // }
-    //         return self::$zaidejas1 = $value;
+    public function getZaidejas()
+    {
+        return self::$zaidejas1;
+    }
+    public function __set($prop, $value)
+    {
+        // echo 'atejo';
+        // die;
+        if ($prop == 'zaidejas1') {
+            return static::$zaidejas1 = $value;
+        } elseif ($prop == 'zaidejas2') {
+            return static::$zaidejas2 = $value;
+        }
+        
+            //return self::$zaidejas1 = $value;
 
-    // }
+    }
     // public static function __get($prop)
     // {
     //     return self::$zaidejas1;

@@ -38,8 +38,8 @@ if (!isset($_SESSION['logged'])) {
     <th>Asmens kodas</th>
     <th>Saskaitos numeris</th>
     <th>Saskaitos likutis</th>
-    <th>Inesti lesu</th>
-    <th>Issiimti lesas</th>
+    <th>Inesti lesas</th>
+    <th>Isimti lesas</th>
     <th>Istrinti saskaita</th>
   </tr>
   <?php foreach ($accounts as $account) :?>
