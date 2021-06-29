@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <body class="fonas">
     <?php include __DIR__.'/menu.php'?>
     <?php include __DIR__.'/msg.php'?>
-    <h1>Log-in</h1>
-    <form action="http://localhost/phpfailai/namuDarbai/bankas2/log-in.php" method="post">
+    <h1 class="centruoti">Log-in</h1>
+    <form class="centruoti"action="http://localhost/phpfailai/namuDarbai/bankas2/log-in.php" method="post">
     <input type="text" name="vardas" placeholder="Vardas">
     <input type="password" name="slaptazodis" placeholder="Slaptazodis">
     <button class="mygtukas"type="submit">Log-in</button>

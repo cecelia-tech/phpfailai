@@ -12,16 +12,16 @@ class Tenisininkas {
         $this->vardas = $vardas;
         $this->kamuoliukas = false;
     }
-    public static function getZaideja($name)
-    {
-        if (!(isset(self::$zaidejas1))) {
-            return self::$zaidejas1 = new self($name);
-        } elseif (!(isset(self::$zaidejas2))) {
-            return self::$zaidejas2 = new self($name);
-        } else {
-            echo 'Tik 2 zaidejai';
-        }
-    }
+    // public static function getZaideja($name)
+    // {
+    //     if (!(isset(self::$zaidejas1))) {
+    //         return self::$zaidejas1 = new self($name);
+    //     } elseif (!(isset(self::$zaidejas2))) {
+    //         return self::$zaidejas2 = new self($name);
+    //     } else {
+    //         echo 'Tik 2 zaidejai';
+    //     }
+    // }
     public function arTuriKamuoliuka(){
         return $this->kamuoliukas;
     }
@@ -43,9 +43,9 @@ class Tenisininkas {
         // echo 'atejo';
         // die;
         if ($prop == 'zaidejas1') {
-            return static::$zaidejas1 = $value;
+            $this->zaidejas1 = $value;
         } elseif ($prop == 'zaidejas2') {
-            return static::$zaidejas2 = $value;
+            $this->zaidejas2 = $value;
         }
         
             //return self::$zaidejas1 = $value;

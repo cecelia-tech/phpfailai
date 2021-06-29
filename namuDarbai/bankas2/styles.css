@@ -47,23 +47,23 @@ td {
   border: 1px solid black;
   border-collapse: collapse;
 }
-.form-block {
+/* .form-block {
   display: block;
   width: 50%;
 }
 .input-block {
   display: block;
   width: 100%;
-}
-form {
+} */
+/* form {
   display: inline-block;
   width: 100%;
 }
 form > input {
   display: inline-block;
-  width: 100%;
+  width: 50%;
   font-size: 20px;
   line-height: 30px;
   border: none;
   border-bottom: 2px solid #ccc;
-}
+} */

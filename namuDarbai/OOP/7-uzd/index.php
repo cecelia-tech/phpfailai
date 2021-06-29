@@ -3,7 +3,7 @@ include __DIR__. '/Grybas.php';
 include __DIR__. '/Krepsys.php';
 //KODEL NEVEIKIA FUNKCIJA?
 $krepsys = new Krepsys;
-// function grybauti($krepsys->pririnktasKiekis, Krepsys::DYDIS){
+// function grybauti($krepsys->pririnktasKiekis){
     do {
         $grybas = new Grybas;
         if ($grybas->valgomas && !($grybas->sukirmijes)) {
