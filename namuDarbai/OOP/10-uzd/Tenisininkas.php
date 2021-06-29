@@ -26,9 +26,29 @@ class Tenisininkas {
         return $this->kamuoliukas;
     }
 
+    public function __get($prop){
+        if ($prop == 'vardas') {
+            return $this->vardas;
+        }
+    }
     public function perduotiKamuoliuka()
     {
-
+        if (!$this->kamuoliukas) {
+            echo '<h1>Perduoti negalim, nes neturim kamuoliuko</h3>';
+        }
+        if (self::$zaidejas1 === null || self::$zaidejas2 === null) {
+            echo '<h1>Kazkurio zaidejo nera</h3>';
+            die;
+        }
+        $this->kamuoliukas = false;
+        // this is 1
+        if ($this->vardas === self::$zaidejas1->vardas) {
+            # code...
+        }
+        //this is 2
+        if ($this->vardas === self::$zaidejas1->vardas) {
+            # code...
+        }
     }
     public function zaidimoPradzia()
     {
