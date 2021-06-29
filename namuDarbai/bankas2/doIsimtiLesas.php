@@ -1,6 +1,6 @@
 <?php
 require __DIR__. '/funkcijos.php';
-
+include __DIR__ . '/msg.php';
 
 $sumaIsimti = $_POST['sumaIsimti'];
 $accountNr = $_GET['accountNr'] ?? 0;
@@ -20,6 +20,7 @@ foreach ($accounts as &$account) {
         } 
         elseif ($account['likutis'] < (float) abs($sumaIsimti)) {
             setMessage('Saskaitoje tiek lesu nera. Galima nuskaiciuoti suma yra ' . $account['likutis'] . " pinigai.");
+            setOld('likutis', (float)$sumaIsimti);
             redirectToAction('isimtiLesas', $accountNr);
         }
         else {

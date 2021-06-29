@@ -25,7 +25,7 @@
     } ?>
     </h3>
     <form class="centruoti" action="?veiksmas=isimtiLesas&accountNr=<?= $_GET['accountNr'] ?>" method="post">
-    <input type="text" name="sumaIsimti">
+    <input type="text" name="sumaIsimti" value="<?= $msg[1]['likutis'] ?? '' ?>">
     <button class="mygtukas" type="submit">Vykdyti</button>
     </form>
 </body>

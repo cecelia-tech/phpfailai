@@ -8,12 +8,22 @@ function getMessage()
     }
     $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
-    return $msg;
+
+    if (isset($_SESSION['old'])) {
+        $old = $_SESSION['old'];
+        unset($_SESSION['old']);
+    }
+    return [$msg, $old];
 }
 
 function setMessage(string $msg)
 {
     $_SESSION['msg'] = $msg;
+}
+
+function setOld(string $name, string $value)
+{
+    $_SESSION['old'][$name] = $value;
 }
 function generateAccountNr()
 {    
