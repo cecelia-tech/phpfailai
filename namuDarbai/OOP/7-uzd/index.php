@@ -15,3 +15,6 @@ $krepsys = new Krepsys;
 
 //echo grybauti();
 echo $krepsys->pririnktasKiekis;
+while ($krepsys->deti(new Grybas)) {} //kol true, tol sukasi
+echo '<pre>';
+var_dump($krepsys);

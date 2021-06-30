@@ -10,6 +10,6 @@ class AgurkaiController {
 
     public function index()
     {
-        return App::view('home');
+        return App::view('main');
     }
 }
