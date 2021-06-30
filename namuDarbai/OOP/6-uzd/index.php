@@ -25,3 +25,7 @@ $stikline3->ipilti($stikline2->ispilti());
 var_dump($stikline1);
 var_dump($stikline2);
 var_dump($stikline3);
+
+/* DESTYTOJO VARIANTAS KAIP PARASYT ISPYLIMA/IPILIMA GRANDINELE    **DAZNAI NAUDOJAMA**
+$stikline100->ipilti($stikline150->ipilti($stikline200->ipilti(1000)->ispilti())->ispilti());
+*/

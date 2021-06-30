@@ -2,14 +2,14 @@
 
 class AgurkaiController {
 
-    public function agurkuTest ($say ='')
+    public function agurkuTest($wahatToSay)
     {
-        echo 'Labas, as agurkai contoller';
-        echo "<br>";
-        echo $say;
+        $labas = 'Hello, little One';
+        return App::view('test', compact('wahatToSay', 'labas'));
     }
-    public function index ()
+
+    public function index()
     {
-        require DIR.'views/main.php';
+        return App::view('home');
     }
 }

@@ -3,84 +3,80 @@
 class Tenisininkas {
 
     private $vardas;
-    private $kamuoliukas;
+    private $kamuoliukas = false;
     private static $zaidejas1;
     private static $zaidejas2;
 
-    public function __construct($vardas)
+    private static $start = false;
+
+    public function __construct($name)
     {
-        $this->vardas = $vardas;
-        $this->kamuoliukas = false;
+        $this->vardas = $name;
+        if (self::$zaidejas1 === null) {
+            self::$zaidejas1 = $this;
+            return;
+        }
+        if (self::$zaidejas2 === null) {
+            self::$zaidejas2 = $this;
+            return;
+        }
+        echo '<h3>Tenisas ne futbolas, vartininko nereik.</h3>';
     }
-    // public static function getZaideja($name)
-    // {
-    //     if (!(isset(self::$zaidejas1))) {
-    //         return self::$zaidejas1 = new self($name);
-    //     } elseif (!(isset(self::$zaidejas2))) {
-    //         return self::$zaidejas2 = new self($name);
-    //     } else {
-    //         echo 'Tik 2 zaidejai';
-    //     }
-    // }
-    public function arTuriKamuoliuka(){
+
+    public static function zaidimoPradzia()
+    {
+        if (self::$zaidejas1 === null || self::$zaidejas2 === null) {
+            echo '<h3>Negali pats su savimi žaisti</h3>';
+            die;
+        }
+        rand(0, 1) ? 
+        self::$zaidejas1->kamuoliukas = true : 
+        self::$zaidejas2->kamuoliukas = true;
+        self::$start = true;
+    }
+    
+    
+    public function arTuriKamuoliuka()
+    {
         return $this->kamuoliukas;
     }
 
-    public function __get($prop){
+    public function __get($prop)
+    {
         if ($prop == 'vardas') {
             return $this->vardas;
         }
     }
+
+    public function __set($prop, $val)
+    {
+        if ($prop == 'kamuoliukas') {
+            $this->kamuoliukas = $val;
+        }
+    }
+
+
     public function perduotiKamuoliuka()
     {
-        if (!$this->kamuoliukas) {
-            echo '<h1>Perduoti negalim, nes neturim kamuoliuko</h3>';
-        }
+        
         if (self::$zaidejas1 === null || self::$zaidejas2 === null) {
-            echo '<h1>Kazkurio zaidejo nera</h3>';
+            echo '<h3>Negali pats su savimi žaisti</h3>';
             die;
         }
+        if (!$this->kamuoliukas && self::$start) {
+            echo '<h3>Perduoti negali, nes neturi kamuoliuoko</h3>';
+            die;
+        }
+
         $this->kamuoliukas = false;
         // this is 1
-        if ($this->vardas === self::$zaidejas1->vardas) {
-            # code...
+        if ($this->vardas == self::$zaidejas1->vardas) {
+            self::$zaidejas2->kamuoliukas = true;
         }
-        //this is 2
-        if ($this->vardas === self::$zaidejas1->vardas) {
-            # code...
+        // this is 2
+        if ($this->vardas == self::$zaidejas2->vardas) {
+            self::$zaidejas1->kamuoliukas = true;
         }
-    }
-    public function zaidimoPradzia()
-    {
 
     }
-    public function getZaidejas()
-    {
-        return self::$zaidejas1;
-    }
-    public function __set($prop, $value)
-    {
-        // echo 'atejo';
-        // die;
-        if ($prop == 'zaidejas1') {
-            $this->zaidejas1 = $value;
-        } elseif ($prop == 'zaidejas2') {
-            $this->zaidejas2 = $value;
-        }
-        
-            //return self::$zaidejas1 = $value;
-
-    }
-    // public static function __get($prop)
-    // {
-    //     return self::$zaidejas1;
-    // }
-    // public function ReflectionClass::setStaticPropertyValue()
-    // {
-    //     echo 'atejo';
-    //     die;
-    //     if (true) {
-    //         self::$zaidejas1 = $value;
-    //     }
-    // }
 }
