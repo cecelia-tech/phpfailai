@@ -1,0 +1,17 @@
+{
+    "name": "vita/21",
+    "authors": [
+        {
+            "name": "cecelia-tech",
+            "email": "79083749+cecelia-tech@users.noreply.github.com"
+        }
+    ],
+     "autoload" : {
+        "psr-4": {
+            "Zoo\\": "",
+            "Australia\\": "australai",
+            "Belgium\\": "belgai"
+        }
+    },
+    "require": {}
+}
