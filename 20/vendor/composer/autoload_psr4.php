@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Kaunas\\' => array('/'),
-    'Belgija\\' => array('/belgai'),
-    'Australija\\' => array('/australai'),
+    'Kaunas\\' => array($baseDir . '/'),
+    'Belgija\\' => array($baseDir . '/belgai'),
+    'Australija\\' => array($baseDir . '/australai'),
 );

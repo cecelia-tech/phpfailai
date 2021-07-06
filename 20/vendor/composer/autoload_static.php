@@ -24,15 +24,15 @@ class ComposerStaticInit6fde91a852828a3cf584920b2162baf5
     public static $prefixDirsPsr4 = array (
         'Kaunas\\' => 
         array (
-            0 => '/',
+            0 => __DIR__ . '/../..' . '/',
         ),
         'Belgija\\' => 
         array (
-            0 => '/belgai',
+            0 => __DIR__ . '/../..' . '/belgai',
         ),
         'Australija\\' => 
         array (
-            0 => '/australai',
+            0 => __DIR__ . '/../..' . '/australai',
         ),
     );
 

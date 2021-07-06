@@ -1,4 +1,6 @@
 <?php
+namespace Bank;
+
 
 class AgurkaiController {
 
