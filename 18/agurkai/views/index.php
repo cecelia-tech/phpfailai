@@ -9,9 +9,9 @@
     <?php foreach($boxes as $box) : ?>
         <li>
             Dėžė Nr. <?= $box['id'] ?> Viso agukų: <?= $box['amount'] ?>
-            [<a href="add/<?= $box['id'] ?>">Pridėti</a>]
-            [<a href="rem/<?= $box['id'] ?>">Išimti</a>]
-            <form action="delete/<?= $box['id'] ?>" method="post">
+            [<a href="<?= URL ?>add/<?= $box['id'] ?>">Pridėti</a>]
+            [<a href="<?= URL ?>rem/<?= $box['id'] ?>">Išimti</a>]
+            <form action="<?= URL ?>delete/<?= $box['id'] ?>" method="post">
             <button type="submit">Išmesti dėžę</button>
             </form>
         </li>
