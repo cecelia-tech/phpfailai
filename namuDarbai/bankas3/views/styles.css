@@ -1,0 +1,69 @@
+.fonas {
+  background-color: seashell;
+}
+.lenteles-virsus {
+  background-color: rgb(175, 215, 250);
+  border: 2px solid black;
+}
+.lenteles-vidus {
+  background-color: white;
+  border: 2px solid grey;
+}
+.mygtukas {
+  background-color: grey;
+  padding: 3px 10px;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+.mygtukas:hover {
+  background-color: rgb(235, 82, 82);
+  cursor: pointer;
+}
+.pavadinimas {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 20px;
+}
+.nuorodos {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 5px 20px;
+}
+.nuorodos:hover {
+  background-color: rgb(175, 215, 250);
+  /* padding: 3px 10px; */
+  border: 1px solid black;
+  border-radius: 7px;
+}
+.centruoti {
+  text-align: center;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+/* .form-block {
+  display: block;
+  width: 50%;
+}
+.input-block {
+  display: block;
+  width: 100%;
+} */
+/* form {
+  display: inline-block;
+  width: 100%;
+}
+form > input {
+  display: inline-block;
+  width: 50%;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+} */
