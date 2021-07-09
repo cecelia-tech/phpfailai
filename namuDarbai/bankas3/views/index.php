@@ -3,9 +3,11 @@
 <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>
     <?php
+    $accounts = Bank\Json::getJson()->showAll();
       usort($accounts, function($a, $b) {
-        return $a['pavarde'] <=> $b['pavarde'];
-    })?>
+      return $a['pavarde'] <=> $b['pavarde'];
+    })
+    ?>
   <tr class="lenteles-virsus">
     <th>Vardas</th>
     <th>Pavarde</th>
@@ -16,7 +18,7 @@
     <th>Isimti lesas</th>
     <th>Istrinti saskaita</th>
   </tr>
-  <?php foreach ($accounts as $account) :?>
+  <?php foreach (Bank\Json::getJson()->showAll() as $account) :?>
   <tr class="lenteles-vidus">
     <td><?=$account['vardas']?></td>
     <td><?=$account['pavarde']?></td>

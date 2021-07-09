@@ -1,4 +1,5 @@
 <?php
+namespace Bank;
 
 class BankController {
 
@@ -12,12 +13,41 @@ class BankController {
     }
     public function doAdd($id)
     {
+        $id = (int) $id;
+        $account = Json::getJson()->show($id);
+        $account ['amount'] += (int)$_POST['amount'];
+        Json::getJson()->update($id, $account);
+        App::redirect();
+    }
 
+    public function remove($id)
+    {
+        return App::view('remove', ['id' => $id]);
+    }
+
+    public function doRemove($id)
+    {
+        $id = (int) $id;
+        $account = Json::getJson()->show($id);
+        $account ['amount'] -= (int)$_POST['amount'];
+        Json::getJson()->update($id, $account);
+        App::redirect();
+    }
+    public function delete($id)
+    {
+        Json::getJson()->delete($id);
+        App::redirect();
 
     }
 
+    public function create()
+    {
+        return App::view('create-account');
+    }
     public function save()
     {
-
+        $account = ['vardas' => $_POST['vardas'], 'pavarde' => $_POST['pavarde'], 'asmensKodas' => $_POST['asmensKodas'], 'accountNr' => $_POST['accountNr'], 'id' => $_POST['id'], 'likutis' => 0];
+        Json::getJson()->create($account);
+        App::redirect();
     }
 }

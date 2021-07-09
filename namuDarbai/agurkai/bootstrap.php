@@ -5,5 +5,5 @@ require __DIR__.'/vendor/autoload.php';
 session_start();
 
 define('DIR', __DIR__.'/'); //pats auksciausias DIR, nereikks ..// and so on
-define('URL', 'http://localhost/phpfailai/namuDarbai/bankas3/public/');
-define('INSTALL_DIR', '/phpfailai/namuDarbai/bankas3/public/'); 
+define('URL', 'http://localhost/phpfailai/namuDarbai/bankas4/public/');
+define('INSTALL_DIR', '/phpfailai/namuDarbai/bankas4/public/'); 

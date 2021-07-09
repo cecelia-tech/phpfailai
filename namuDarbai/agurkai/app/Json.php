@@ -24,36 +24,35 @@ class Json implements DataBase {
     file_put_contents(DIR.'/accounts.json', json_encode($this->data));
     }
 
-    //ACOUNTDATA VISAS SASKAITOS OBJEKTAS
-    public function create(array $accountData) : void 
+    public function create(array $boxData) : void 
     {
-        $this->data [] = $accountData;
+        $this->data [] = $boxData;
     }
 
-    public function update(int $accountId, array $accountData) : void 
+    public function update(int $boxId, array $boxData) : void 
     {
-        foreach ($this->data as $index => $account) {
-            if ($account['id'] == $accountId) {
-                $this->data[$index] = $accountData;
+        foreach ($this->data as $index => $box) {
+            if ($box['id'] == $boxId) {
+                $this->data[$index] = $boxData;
                 return;
             }
         }
     }
 
-    public function delete(int $accountId) : void 
+    public function delete(int $boxId) : void 
     {
-        foreach ($this->data as $index => $account) {
-            if ($account['id'] == $accountId) {
+        foreach ($this->data as $index => $box) {
+            if ($box['id'] == $boxId) {
                 unset($this->data[$index]);
                 return;
             }
         }
     }
 
-    public function show(int $accountId) : array 
+    public function show(int $boxId) : array 
     {
-        foreach ($this->data as $index => $account) {
-            if ($account['id'] == $accountId) {
+        foreach ($this->data as $index => $box) {
+            if ($box['id'] == $boxId) {
                 return $this->data[$index];
             }
         }
