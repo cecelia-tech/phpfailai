@@ -9,3 +9,4 @@
 </head>
 <body class="fonas" >
     <?php require DIR.'views/menu.php' ?>
+    <?php require DIR.'views/msg.php' ?>

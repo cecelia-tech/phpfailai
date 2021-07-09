@@ -1,5 +1,6 @@
 <?php require DIR.'views/top.php' ?>
 
+<a class="nuorodos" href="<?=URL?>create-account">Prideti saskaita</a>
 <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>
     <?php

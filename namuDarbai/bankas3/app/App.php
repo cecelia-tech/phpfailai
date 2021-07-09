@@ -22,18 +22,6 @@ class App {
     die;
     }
 
-    public static function generateAccountNr()
-    {    $nr = 1;
-    foreach (range(1, 16) as $key => $value) {
-        $nr .= rand(0, 9);
-    }
-    return $nr;
-    }
-
-    public static function generateId()
-    { 
-        return rand(1000000, 9999999);
-    }
     private static function router()
     {
         $uri = str_replace(INSTALL_DIR, '', $_SERVER['REQUEST_URI']);
