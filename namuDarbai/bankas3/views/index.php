@@ -25,9 +25,9 @@
     <td><?=$account['asmensKodas']?></td>
     <td><?=$account['accountNr']?></td>
     <td><?=$account['likutis']?></td>
-    <td>[<a href="?veiksmas=pridetiLesas&accountNr=<?= $account['accountNr'] ?>">Pridėti</a>]</td>
-    <td>[<a href="?veiksmas=isimtiLesas&accountNr=<?= $account['accountNr'] ?>">Isimti</a>]</td>
-    <td><form action="?veiksmas=istrintiSaskaita&accountNr=<?= $account['accountNr'] ?>" method="post">
+    <td>[<a href="pridetiLesas/<?= $account['id'] ?>">Pridėti</a>]</td>
+    <td>[<a href="isimtiLesas/<?= $account['id'] ?>">Isimti</a>]</td>
+    <td><form action="istrintiSaskaita/<?= $account['id'] ?>" method="post">
             <button class="mygtukas" type="submit">Istrinti saskaita</button>
             </form>
             </td>

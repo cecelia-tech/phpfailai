@@ -15,7 +15,7 @@ class BankController {
     {
         $id = (int) $id;
         $account = Json::getJson()->show($id);
-        $account ['amount'] += (int)$_POST['amount'];
+        $account ['likutis'] += (int)$_POST['sumaPrideti'];
         Json::getJson()->update($id, $account);
         App::redirect();
     }
@@ -29,7 +29,7 @@ class BankController {
     {
         $id = (int) $id;
         $account = Json::getJson()->show($id);
-        $account ['amount'] -= (int)$_POST['amount'];
+        $account ['likutis'] -= (int)$_POST['sumaIsimti'];
         Json::getJson()->update($id, $account);
         App::redirect();
     }

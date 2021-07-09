@@ -49,7 +49,7 @@ class App {
             }
         }
 
-        if ('add' == $uri[0] && isset($uri[1])) {
+        if ('pridetiLesas' == $uri[0] && isset($uri[1])) {
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->add($uri[1]);
             }
@@ -57,7 +57,7 @@ class App {
                 return (new BankController)->doAdd($uri[1]);
             }
         }
-        if ('rem' == $uri[0] && isset($uri[1])) {
+        if ('isimtiLesas' == $uri[0] && isset($uri[1])) {
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->remove($uri[1]);
             }
@@ -65,13 +65,10 @@ class App {
                 return (new BankController)->doRemove($uri[1]);
             }
         }
-        if ('delete' == $uri[0] && isset($uri[1]) && 'POST' == $_SERVER['REQUEST_METHOD']) {
+        if ('istrintiSaskaita' == $uri[0] && isset($uri[1]) && 'POST' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->delete($uri[1]);
         }
 
-        if ($uri[0] == 'testas' && isset($uri[1])) {
-            return (new BankController)->agurkuTest($uri[1]);
-        }
         if ($uri[0] === '' && count($uri) === 1) {
             return (new BankController)->index();
         }

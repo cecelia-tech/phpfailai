@@ -8,3 +8,4 @@
     <title>Bankas</title>
 </head>
 <body class="fonas" >
+    <?php require DIR.'views/menu.php' ?>

@@ -14,7 +14,7 @@ error_reporting(E_ALL);
         <input type="text" name="pavarde" placeholder="Pavarde" >
         <input type="text" name="asmensKodas" placeholder="Asmens kodas" >
         <input type="text" name="accountNr" value="<?='LT0'. Bank\App::generateAccountNr()?>" readonly>
-        <input type="text" name="id" value="<?=Bank\App::generateId()?>" readonly>
+        <input type="hidden" name="id" value="<?=Bank\App::generateId()?>" readonly>
         <button class="mygtukas "type="submit">Pridėti naują saskaita</button>
     </form> 
     </div>
