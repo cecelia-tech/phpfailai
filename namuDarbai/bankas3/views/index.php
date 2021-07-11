@@ -1,5 +1,11 @@
 <?php require DIR.'views/top.php' ?>
 
+<?php if (!isset($_SESSION['logged'])) {
+    header('Location:' . URL . 'login');
+    die;
+    }
+    ?>
+    <?=$_SESSION['logged'], $_SESSION['vardas']?>
 <a class="nuorodos" href="<?=URL?>create-account">Prideti saskaita</a>
 <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>

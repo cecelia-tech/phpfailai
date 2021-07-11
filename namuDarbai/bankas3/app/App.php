@@ -1,5 +1,6 @@
 <?php
 namespace Bank;
+//use Darbuotojai\LogInController;
 
 class App {
 
@@ -59,6 +60,19 @@ class App {
 
         if ($uri[0] === '' && count($uri) === 1) {
             return (new BankController)->index();
+        }
+        if ($uri[0] === 'login' ) {
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                return (new LogInController)->index();
+            } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                return (new LogInController)->login();
+            }
+            
+        }
+        
+        if ($uri[0] === 'logout' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+            return (new LogInController)->login();
+            //return (new LogInController)->index();
         }
        
         self::view('404');
