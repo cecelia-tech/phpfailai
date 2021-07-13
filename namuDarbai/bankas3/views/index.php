@@ -5,15 +5,12 @@
     die;
     }
     ?>
-    <?=$_SESSION['logged'], $_SESSION['vardas']?>
+    
 <a class="nuorodos" href="<?=URL?>create-account">Prideti saskaita</a>
 <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>
     <?php
-    $accounts = Bank\Json::getJson()->showAll();
-      usort($accounts, function($a, $b) {
-      return $a['pavarde'] <=> $b['pavarde'];
-    })
+      $accounts = Bank\Json::getJson()->showAll();
     ?>
   <tr class="lenteles-virsus">
     <th>Vardas</th>
@@ -25,7 +22,7 @@
     <th>Isimti lesas</th>
     <th>Istrinti saskaita</th>
   </tr>
-  <?php foreach (Bank\Json::getJson()->showAll() as $account) :?>
+  <?php foreach ($accounts as $account) :?>
   <tr class="lenteles-vidus">
     <td><?=$account['vardas']?></td>
     <td><?=$account['pavarde']?></td>

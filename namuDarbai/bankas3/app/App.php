@@ -67,12 +67,17 @@ class App {
             } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 return (new LogInController)->login();
             }
-            
         }
-        
         if ($uri[0] === 'logout' && $_SERVER['REQUEST_METHOD'] === 'GET') {
             return (new LogInController)->login();
             //return (new LogInController)->index();
+        }
+        if ($uri[0] === 'prideti' ) {
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                return (new BankController)->prideti();
+            } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                return (new BankController)->issaugotiDarbuotoja();
+            }
         }
        
         self::view('404');

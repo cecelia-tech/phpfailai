@@ -5,7 +5,10 @@ class BankController {
 
     public function index()
     {
-        return App::view('index', ['acounts' => Json::getJson()->showAll()]);
+        $accounts = Json::getJson()->showAll();
+        //vistiek kazkodel nesortina
+        //usort($accounts, fn ($a, $b) => $b['pavarde'] <=> $a['pavarde']);
+        return App::view('index', ['accounts' => $accounts]);
     }
     public function add($id)
     {
@@ -137,6 +140,17 @@ foreach ($accounts as $account2) {
 }
         Json::getJson()->create($account);
         Funkcijos::setMessage('Nauja saskaita sukurta');
+        App::redirect();
+    }
+    public function prideti()
+    {
+        return App::view('darbuotojai');
+    }
+    public function issaugotiDarbuotoja()
+    {
+        $darbuotojas = ['vardas' => $_POST['vardas'], 'slaptazodis' => md5($_POST['slaptazodis'])];
+
+        JsonDarbuotojai::getDarbuotojaiJson()->create($darbuotojas);
         App::redirect();
     }
 }
