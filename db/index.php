@@ -8,9 +8,9 @@ $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //masyvas
-    PDO::ATTR_EMULATE_PREPARES   => false,
+     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //masyvas
+     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
@@ -18,6 +18,19 @@ try {
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$sql = "DELETE FROM tree
+WHERE id = ?";
+
+//padarom apsauga nuo school injection 
+$stmt = $pdo->prepare($sql); //paruosimas
+$stmt->execute([$_POST['id']]);
+
+
+//$pdo->query($sql);
+header('Location: http://localhost/phpfailai/db/');
+die;
+}
 //seeder
 $tree = [
      ['Berzas', rand(0, 1500) / 100, 1],
@@ -37,16 +50,24 @@ $n = rand(0, count($tree) - 1);
 
 
 $sql = "INSERT INTO tree (name, height, type)
-VALUES ('".$tree[$n][0]."', ".$tree[$n][1].", ".$tree[$n][2].")
+VALUES (?, ?, ?)
 ";
-$pdo->query($sql);
+$stmt = $pdo->prepare($sql); //paruosimas
+$stmt->execute([$tree[$n][0], $tree[$n][1], $tree[$n][2]]);
+
+//sita reikia keisti
+//VALUES ('".$tree[$n][0]."', ".$tree[$n][1].", ".$tree[$n][2].")
+//";
+//negalima naudot query bet kokiam inputui ar kodui, kas ateina is user ar kitos bibliotekos. Query tik jei koda pasirasem patys
+//$pdo->query($sql);
+
 
 //SKAITYMAS
 // SELECT column_name(s) FROM table_name
 $sql = "SELECT id, name, height, type
 FROM tree
-WHERE type = 2 AND height > 5
-ORDER BY name 
+WHERE type = 2 AND height > 0
+ORDER BY height 
 -- LIMIT 5
 ";
 $stmt = $pdo->query($sql); //DB steitmentas 'stmt'
@@ -68,7 +89,8 @@ $pdo->query($sql);
 
 //TRYNIMAS
 
-$sql = "DELETE FROM tree
-WHERE id = 10
-";
-$pdo->query($sql);
+?>
+<form action="" method="post">
+<input type="text" name="id">
+<button type="submit">Delete</button>
+</form>
