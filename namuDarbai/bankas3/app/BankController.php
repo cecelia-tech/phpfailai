@@ -113,12 +113,12 @@ class BankController {
         //Funkcijos::setOld('likutis', (float)$sumaIsimti);
         Funkcijos::redirectToAction2('create-account', 'POST');
     }
-elseif (strlen($account['vardas']) <= 3 || strlen($account['pavarde']) <= 3) {
+    elseif (strlen($account['vardas']) <= 3 || strlen($account['pavarde']) <= 3) {
         Funkcijos::setMessage('Vardas ir pavarde turi buti ilgesni nei 3 simboliai.');
         Funkcijos::redirectToAction2('create-account', 'POST');
     }
 
-if (!(strlen($account['asmensKodas']) == 11)) {
+    if (!(strlen($account['asmensKodas']) == 11)) {
         Funkcijos::setMessage('Asmens kodas turi buti is 11 skaiciu.');
         Funkcijos::redirectToAction2('create-account', 'POST');
     } elseif (!(preg_match("/^[0-9]+$/", $account['asmensKodas']))) {
@@ -138,7 +138,7 @@ foreach ($accounts as $account2) {
         Funkcijos::redirectToAction2('create-account', 'POST');
     }
 }
-        Json::getJson()->create($account);
+        Maria::getMaria()->create($account);
         Funkcijos::setMessage('Nauja saskaita sukurta');
         App::redirect();
     }

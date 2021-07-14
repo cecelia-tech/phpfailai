@@ -32,14 +32,13 @@ class Maria implements DataBase {
         $this->pdo = new PDO($dsn, $user, $pass, $options);
     }
 
-
-
     public function create(array $accountData) : void
     {
         $sql =
         "INSERT INTO bank (`vardas`, `pavarde`, `asmensKodas`, `accountNr`, `likutis`)
-        VALUES (0)";
-        $this->pdo->query($sql);
+        VALUES (?, ?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql); //paruosimas
+        $stmt->execute([$accountData['vardas'], $accountData['pavarde'], $accountData['asmensKodas'], $accountData['accountNr'], $accountData['likutis']]);
 
     }
  
@@ -78,7 +77,7 @@ class Maria implements DataBase {
     public function showAll() : array {
         $sql = 
         "SELECT id, `count` as amount
-        FROM dezes
+        FROM bankas
         ORDER BY `count` DESC
         ";
         $all = [];
@@ -90,5 +89,19 @@ class Maria implements DataBase {
         return $all;
     }
 
+    public function getUser(string $name, string $pass) : array
+    {
+        $sql = 
+        "SELECT *
+        FROM users
+        WHERE name = ? AND pass = ?
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$name, $pass]);
+        $user = $stmt->fetch();
+        return false ===  $user ? []: $user;
+
+    }
 
 }

@@ -23,6 +23,12 @@ class App {
     die;
     }
 
+    public static function checkLogin() 
+    {
+        if (!isset($_SESSION['logged'])) {
+            self::redirect('login');
+    }
+    }
     private static function router()
     {
         $uri = str_replace(INSTALL_DIR, '', $_SERVER['REQUEST_URI']);
@@ -30,6 +36,7 @@ class App {
 // print_r($uri);
 //        die;
         if ('create-account' == $uri[0]) {
+            self::checkLogin();
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->create();
             }
@@ -39,6 +46,7 @@ class App {
         }
 
         if ('pridetiLesas' == $uri[0] && isset($uri[1])) {
+            self::checkLogin();
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->add($uri[1]);
             }
@@ -47,6 +55,7 @@ class App {
             }
         }
         if ('isimtiLesas' == $uri[0] && isset($uri[1])) {
+            self::checkLogin();
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
                 return (new BankController)->remove($uri[1]);
             }
@@ -55,6 +64,8 @@ class App {
             }
         }
         if ('istrintiSaskaita' == $uri[0] && isset($uri[1]) && 'POST' == $_SERVER['REQUEST_METHOD']) {
+            self::checkLogin();
+
                 return (new BankController)->delete($uri[1]);
         }
 
@@ -63,22 +74,27 @@ class App {
         }
         if ($uri[0] === 'login' ) {
             if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                return (new LogInController)->index();
+                return (new LogInController)->showLogin();
             } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                return (new LogInController)->login();
+                return (new LogInController)->doLogin();
             }
         }
-        if ($uri[0] === 'logout' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            return (new LogInController)->login();
-            //return (new LogInController)->index();
+
+        if ($uri[0] === 'logout' ) {
+            unset($_SESSION['logged'], $_SESSION['vardas']);
+            self::redirect('login');
         }
-        if ($uri[0] === 'prideti' ) {
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                return (new BankController)->prideti();
-            } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                return (new BankController)->issaugotiDarbuotoja();
-            }
-        }
+        // if ($uri[0] === 'logout' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+        //     return (new LogInController)->login();
+        //     //return (new LogInController)->index();
+        // }
+        // if ($uri[0] === 'prideti' ) {
+        //     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        //         return (new BankController)->prideti();
+        //     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //         return (new BankController)->issaugotiDarbuotoja();
+        //     }
+        // }
        
         self::view('404');
         http_response_code(404);
