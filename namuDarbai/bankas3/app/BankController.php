@@ -5,7 +5,7 @@ class BankController {
 
     public function index()
     {
-        $accounts = Json::getJson()->showAll();
+        $accounts = Maria::getMaria()->showAll();
         //vistiek kazkodel nesortina
         //usort($accounts, fn ($a, $b) => $b['pavarde'] <=> $a['pavarde']);
         return App::view('index', ['accounts' => $accounts]);
@@ -18,7 +18,7 @@ class BankController {
     {
         $id = (int) $id;
         $sumaPrideti = $_POST['sumaPrideti'];
-        $saskaitos = Json::getJson()->showAll();
+        $saskaitos = Maria::getMaria()->showAll();
 
         foreach ($saskaitos as $account) {
         if ($account['id'] == $id) {
@@ -37,9 +37,9 @@ class BankController {
             
         }
         else {
-            $account = Json::getJson()->show($id);
+            $account = Maria::getMaria()->show($id);
             $account['likutis'] += round((float) abs($sumaPrideti), 2);
-            Json::getJson()->update($id, $account);
+            Maria::getMaria()->update($id, $account);
             Funkcijos::setMessage(round(abs($sumaPrideti), 2). ' pinigai prideta i ' . $account['vardas'] .' ' .$account['pavarde'] . ' saskaita');
             App::redirect();
         }
@@ -67,7 +67,7 @@ class BankController {
             Funkcijos::setMessage('Laukelyje turi buti ivedama tik skaiciai');
             Funkcijos::redirectToAction('isimtiLesas', $id);
         } 
-        foreach (Json::getJson()->showAll() as $account) {
+        foreach (Maria::getMaria()->showAll() as $account) {
             if ($account['likutis'] === $id) {
                 if ($account['likutis'] < (float) abs($sumaIsimti)) {
             Funkcijos::setMessage('Saskaitoje tiek lesu nera. Galima nuskaiciuoti suma yra ' . $account['likutis'] . " pinigai.");
@@ -76,23 +76,23 @@ class BankController {
         }
             }
         }
-        $account = Json::getJson()->show($id);
+        $account = Maria::getMaria()->show($id);
         $account ['likutis'] -= (int)$_POST['sumaIsimti'];
-        Json::getJson()->update($id, $account);
+        Maria::getMaria()->update($id, $account);
         Funkcijos::setMessage(abs($sumaIsimti). ' pinigai sekmingai isimta is ' . $account['vardas'] . ' ' . $account['pavarde'] . ' saskaitos');
         App::redirect();
     }
     public function delete($id)
     {
     $accountId = $id ?? 0;
-    $accounts = Json::getJson()->showAll();
+    $accounts = Maria::getMaria()->showAll();
     foreach ($accounts as $index => $account1) {
         if ($account1['id'] == $accountId) {
             if ($account1['likutis'] > 0 ) {
                 Funkcijos::setMessage('Saskaitos, kurioje yra lesu, istrinti negalima');
                     App::redirect();
             } else {
-                Json::getJson()->delete($id);
+                Maria::getMaria()->delete($id);
                 Funkcijos::setMessage('Saskaita sekmingai istrinta');
                 App::redirect();
             }
@@ -132,7 +132,7 @@ class BankController {
     // foreach ($account['asmensKodas'] as $raide) {
     //     # code...
     // }
-foreach ($accounts as $account2) {
+foreach (Maria::getMaria()->showAll() as $account2) {
     if ($account2['asmensKodas'] === $account['asmensKodas']) {
         Funkcijos::setMessage('Saskaita su tokiu asmens kodu jau yra sukurta');
         Funkcijos::redirectToAction2('create-account', 'POST');
@@ -150,7 +150,7 @@ foreach ($accounts as $account2) {
     {
         $darbuotojas = ['vardas' => $_POST['vardas'], 'slaptazodis' => md5($_POST['slaptazodis'])];
 
-        JsonDarbuotojai::getDarbuotojaiJson()->create($darbuotojas);
+        MariaDarbuotojai::getDarbuotojaiMaria()->create($darbuotojas);
         App::redirect();
     }
 }

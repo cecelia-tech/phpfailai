@@ -10,7 +10,7 @@
 <table class="centruoti" style="width:100%">
     <caption class="pavadinimas" >Vartotoju saskaitos</caption>
     <?php
-      $accounts = Bank\Json::getJson()->showAll();
+      $accounts = Bank\Maria::getMaria()->showAll();
     ?>
   <tr class="lenteles-virsus">
     <th>Vardas</th>

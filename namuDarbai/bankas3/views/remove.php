@@ -4,7 +4,7 @@
     <h3 class="centruoti">
     <?php 
     $accountId = $id ?? 0;?>
-    <?php foreach (Bank\Json::getJson()->showAll() as $account) {
+    <?php foreach (Bank\Maria::getMaria()->showAll() as $account) {
         if ($account['id'] == $accountId) {
         echo $account['vardas'] . " " . $account['pavarde'] . " saskaita. Saskaitoje yra " .  $account['likutis'] . " pinigu.";
         }

@@ -37,7 +37,7 @@ class Maria implements DataBase {
         $sql =
         "INSERT INTO bank (`vardas`, `pavarde`, `asmensKodas`, `accountNr`, `likutis`)
         VALUES (?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql); //paruosimas
+        $stmt = $this->pdo->prepare($sql); //paruosimas
         $stmt->execute([$accountData['vardas'], $accountData['pavarde'], $accountData['asmensKodas'], $accountData['accountNr'], $accountData['likutis']]);
 
     }
@@ -45,8 +45,8 @@ class Maria implements DataBase {
     public function update(int $accountId, array $accountData) : void
     {
         $sql =
-        "UPDATE dezes
-        SET `count` = ".$accountData['amount']."
+        "UPDATE bank
+        SET `likutis` = ".$accountData['likutis']."
         WHERE id = $accountId";
 
 
@@ -56,7 +56,7 @@ class Maria implements DataBase {
     public function delete(int $accountId) : void
     {
         $sql =
-        "DELETE FROM dezes
+        "DELETE FROM bank
         WHERE id = $accountId";
         $this->pdo->query($sql);
     }
@@ -64,8 +64,8 @@ class Maria implements DataBase {
     public function show(int $accountId) : array
     {
         $sql = 
-        "SELECT id, `count` as amount
-        FROM dezes
+        "SELECT id, vardas, pavarde, asmensKodas, accountNr, likutis
+        FROM bank
         WHERE id = $accountId
         ";
         $stmt = $this->pdo->query($sql);
@@ -76,19 +76,21 @@ class Maria implements DataBase {
     
     public function showAll() : array {
         $sql = 
-        "SELECT id, `count` as amount
-        FROM bankas
-        ORDER BY `count` DESC
+        "SELECT *
+        FROM bank
+        ORDER BY `pavarde` DESC
         ";
-        $all = [];
+        $accounts = [];
         $stmt = $this->pdo->query($sql);
         while ($row = $stmt->fetch())
         {
-            $all[] = $row;
+            $accounts[] = $row;
         }
-        return $all;
+        return $accounts;
     }
 
+
+    //SITAS LOGINUI
     public function getUser(string $name, string $pass) : array
     {
         $sql = 

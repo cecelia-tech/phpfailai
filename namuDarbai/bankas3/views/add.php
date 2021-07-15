@@ -9,7 +9,7 @@ error_reporting(E_ALL);
     <?php 
     $accountId = $id ?? 0;
    
-    foreach (Bank\Json::getJson()->showAll() as $account) {
+    foreach (Bank\Maria::getMaria()->showAll() as $account) {
         if ($account['id'] == $accountId) {
         echo $account['vardas'] . " " . $account['pavarde'] . " saskaita. Saskaitoje yra " .  $account['likutis'] . " pinigu.";
         }
